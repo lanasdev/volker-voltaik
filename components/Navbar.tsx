@@ -1,20 +1,31 @@
 import Link from "next/link";
+import Logo from "../components/Logo";
+import CallToAction from "./CallToAction";
 
 const Navbar = () => {
   return (
-    <nav className="flex space-x-4 py-2 sm:justify-center">
+    <nav className="flex  items-center md:justify-between py-2 sm:justify-center">
+      <Link href="/">
+        <a className="font-bold text-2xl">
+          <Logo />
+        </a>
+      </Link>
+      <div className="space-x-4">
       {[
         ["Home", "/"],
-        ["About", "/about"],
-        ["Users List", "/users"],
-        ["Users API", "/api/users"],
+        ["Projekte", "/projekte"],
+        ["Fachgebiete", "/fachgebiete"],
+        ["Ueber uns", "/ueber"],
       ].map(([title, url]) => (
         <Link href={url} key={title}>
-          <a className="rounded-lg px-3 py-2 font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+          <a className="rounded-lg px-[20px] py-[10px] font-medium text-black hover:bg-black/10 hover:underline underline-offset-2 hover:decoration-yellow">
             {title}
           </a>
         </Link>
       ))}
+      </div>
+      <CallToAction />
+
     </nav>
   );
 };

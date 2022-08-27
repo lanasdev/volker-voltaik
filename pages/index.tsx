@@ -1,76 +1,62 @@
 import Link from "next/link";
-import Layout from "../components/Layout";
+import Image from "next/image";
+import Layout from "components/Layout";
 import Head from "next/head";
 // import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
+import ManSolar from "public/img/ManSolar.png"
+import CallToAction from "components/CallToAction";
 
+//phosphoricons
+import { Sun, Lightning, BatteryChargingVertical } from "phosphor-react"
+import LogoBig from "components/LogoBig";
+
+const Leistungen = [
+  {
+    "name": "Photovoltaik",
+    "url": <Sun />,
+    "slug": "photovoltaik",
+    "id": 0,
+  },
+  {
+    "name": "Elektrische Anlagen",
+    "icon": <Lightning />,
+    "slug": "elektrische-anlagen",
+    "id": 1,
+  },
+  {
+    "name": "Energiespeicher",
+    "icon": <BatteryChargingVertical />,
+    "slug": "energiespeicher",
+    "id": 2,
+  },
+]
 
 const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript + Tailwind">
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="py-8 text-6xl font-bold">
-          Hello{" "}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>{" "}
-          👋
-        </h1>
-
-        <p className="mt-3 text-2xl">
-          Get started by editing{" "}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
-            pages/index.tsx
-          </code>
-        </p>
-
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+  <Layout title="Volker Voltaik">
+    <LogoBig />
+    <section className="pt-8 flex flex-col md:flex-row items-center justify-between">
+      <div className="flex flex-col items-start justify-between">
+        <h1 className="text-2xl md:text-4xl font-semibold font-display ">Volker Voltaik - Elektroinstallateur</h1>
+        <p className="max-w-xl font-regular pt-6 pb-10 leading-7">Es gibt viele Gründe in eine Solaranlage von Volker Voltaik zu investieren. Steigende Gaspreise, mögliche Blackouts oder einfach günstigere Strompreise. Alle Gründe sind legitim und deshalb wir passen immer Ihre Anlage, Ihren wünschen an.</p>
+        <CallToAction />
+        {/* Leistungen Section */}
+        <div className="flex flex-col">
+          <h2 className="text-2xl font-semibold pt-16 pb-8">Unsere Leistungen</h2>
+          <div className="flex flex-row w-auto">
+            {Leistungen.map((leistung) => (
+              <Link href={`/leistungen/${leistung.slug}`} key={leistung.id}>
+                <a className="flex flex-col items-center justify-start p-4">
+                  <span className="text-2xl font-semibold w-16 h-16 bg-black flex items-center justify-center text-white rounded-full mb-2">{leistung.icon}</span>
+                  <p className="text-md font-semibold">{leistung.name + " -->"}</p>
+                </a>
+              </Link>
+            ))}
+                
+          </div>
         </div>
-      </main>
-    </div>
+      </div>
+      <Image src={ManSolar} alt="Man holding Volker Voltaik Solar Panel" />
+    </section>
   </Layout>
 );
 
