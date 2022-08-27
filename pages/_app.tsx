@@ -3,9 +3,10 @@ import type { AppProps } from "next/app";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-  <div className="container mx-auto black px-6 md:px-0">
+    <div className="black container mx-auto px-6 md:px-4">
       <Component {...pageProps} />
-  </div>
-)}
+    </div>
+  );
+}
 
 export default MyApp;

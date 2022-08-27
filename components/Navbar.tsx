@@ -4,28 +4,27 @@ import CallToAction from "./CallToAction";
 
 const Navbar = () => {
   return (
-    <nav className="flex  items-center md:justify-between py-2 sm:justify-center">
+    <nav className="flex  items-center py-2 sm:justify-center md:justify-between">
       <Link href="/">
-        <a className="font-bold text-2xl">
+        <a className="text-2xl font-bold">
           <Logo />
         </a>
       </Link>
       <div className="space-x-4">
-      {[
-        ["Home", "/"],
-        ["Projekte", "/projekte"],
-        ["Fachgebiete", "/fachgebiete"],
-        ["Ueber uns", "/ueber"],
-      ].map(([title, url]) => (
-        <Link href={url} key={title}>
-          <a className="rounded-lg px-[20px] py-[10px] font-medium text-black hover:bg-black/10 hover:underline underline-offset-2 hover:decoration-yellow">
-            {title}
-          </a>
-        </Link>
-      ))}
+        {[
+          ["Home", "/"],
+          ["Projekte", "/projekte"],
+          ["Fachgebiete", "/fachgebiete"],
+          ["Ueber uns", "/ueber"],
+        ].map(([title, url]) => (
+          <Link href={url} key={title}>
+            <a className="rounded-lg px-[20px] py-[10px] font-medium text-black underline-offset-2 hover:bg-black/10 hover:underline hover:decoration-yellow">
+              {title}
+            </a>
+          </Link>
+        ))}
       </div>
       <CallToAction />
-
     </nav>
   );
 };
