@@ -4,11 +4,14 @@ import Layout from "components/Layout";
 // import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
 import HeroSection from "components/HeroSection";
 
-
-
+import Testimonials from "components/Testimonials";
+import Contact from "components/Contact";
 const IndexPage = () => (
   <Layout title="Volker Voltaik">
     <HeroSection />
+    <div className="h-40"></div>
+    <Testimonials />
+    <Contact />
   </Layout>
 );
 

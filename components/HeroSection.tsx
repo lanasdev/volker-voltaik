@@ -6,22 +6,24 @@ import CallToAction from "components/CallToAction";
 //phosphoricons
 import { Sun, Lightning, BatteryChargingVertical } from "phosphor-react";
 
+const iconSize = 32;
+
 const Leistungen = [
   {
     name: "Photovoltaik",
-    url: <Sun />,
+    url: <Sun size={iconSize} />,
     slug: "photovoltaik",
     id: 0,
   },
   {
     name: "Elektrische Anlagen",
-    icon: <Lightning />,
+    icon: <Lightning size={iconSize} />,
     slug: "elektrische-anlagen",
     id: 1,
   },
   {
     name: "Energiespeicher",
-    icon: <BatteryChargingVertical />,
+    icon: <BatteryChargingVertical size={iconSize} />,
     slug: "energiespeicher",
     id: 2,
   },
@@ -29,7 +31,7 @@ const Leistungen = [
 const HeroSection = () => (
   <>
     <LogoBig />
-    <section className="flex flex-col items-center justify-between pt-8 md:flex-row">
+    <section className="flex flex-col items-center justify-between pt-8 md:flex-row md:px-16">
       <div className="flex flex-col items-start justify-between">
         <h1 className="font-display text-2xl font-semibold md:text-4xl ">
           Volker Voltaik - Elektroinstallateur
