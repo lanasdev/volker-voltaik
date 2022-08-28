@@ -2,10 +2,11 @@ import * as React from "react";
 
 const Icon = (props: React.SVGProps<SVGSVGElement>) => {
   return (
-    <div className="absolute md:top-32 md:right-1/4">
+    <div className="absolute md:top-32 md:right-1/4 ">
+      {/* hide temp LogoBig */}
       <svg
-        width={730}
-        height={722}
+        // width={730}
+        // height={722}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         {...props}

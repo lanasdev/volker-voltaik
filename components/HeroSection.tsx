@@ -30,8 +30,8 @@ const Leistungen = [
 ];
 const HeroSection = () => (
   <>
-    <LogoBig />
-    <section className="flex flex-col items-center justify-between pt-8 md:flex-row md:px-16">
+    {/* <LogoBig />  */}
+    <section className="flex flex-col items-center justify-around pt-8 md:flex-row md:px-16">
       <div className="flex flex-col items-start justify-between">
         <h1 className="font-display text-2xl font-semibold md:text-4xl ">
           Volker Voltaik - Elektroinstallateur
