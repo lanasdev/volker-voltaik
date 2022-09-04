@@ -16,19 +16,12 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "*": [
-        "node_modules/*"
-      ],
-      "components/*": [
-        "components/*"
-      ],
-      "api/*": [
-        "pages/api/*"
-      ],
-      "pages/*": [
-        "pages/*"
-      ],
-    },
+      "*": ["node_modules/*"],
+      "components/*": ["components/*"],
+      "api/*": ["pages/api/*"],
+      "pages/*": ["pages/*"],
+      "public/*": ["public/*"]
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

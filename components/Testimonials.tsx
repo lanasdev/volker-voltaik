@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import cn from "classnames";
+import SectionContainer from "./SectionContainer";
 
 const Testimonials = () => {
   const [testimonials, setTestimonials] = useState([
@@ -51,56 +52,58 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="h-full w-full px-16 pb-16">
-      <h3 className="pb-32 text-xl font-semibold">Was unsere Kunden sagen</h3>
-      <div className="mx-auto flex h-full flex-col items-center justify-between">
-        {/* <span className="absolute top-5 font-display text-4xl">{`"`}</span> */}
-        <div className="flex h-full w-1/2 flex-row items-center justify-around">
-          <button
-            className="rounded py-2 px-4 text-2xl font-bold text-black/50 hover:text-black md:text-4xl"
-            onClick={() => {
-              rotateTestimonial("prev");
-            }}
-          >
-            {"<"}
-          </button>
-          {/* diplay testimonial only if the testimonial id equals currentTestimonial  */}
-          {testimonials
-            .filter((testimonial) => testimonial.id === currentTestimonial)
-            .map((testimonial) => (
-              <div
-                key={testimonial.id}
-                className="flex h-full flex-col items-center justify-center"
-              >
-                <p className="text-md max-w-xl">{testimonial.text}</p>
-                <p className="text-xl">{"- " + testimonial.name}</p>
-              </div>
-            ))}
-          <button
-            className="rounded py-2 px-4 text-2xl font-bold text-black/50 hover:text-black md:text-4xl"
-            onClick={() => {
-              rotateTestimonial("next");
-            }}
-          >
-            {">"}
-          </button>
-        </div>
-        <div className="flex h-full flex-row items-center justify-center space-x-2 pt-8">
-          {testimonials.map((testimonial) => (
-            <span
-              key={testimonial.id}
-              className={cn(
-                "h-2 w-2 cursor-pointer rounded-full bg-black/25",
-                currentTestimonial == testimonial.id && "bg-black/75"
-              )}
+    <SectionContainer>
+      <section className="h-full w-full pb-16">
+        <h3 className="pb-32 text-xl font-semibold">Was unsere Kunden sagen</h3>
+        <div className="mx-auto flex h-full flex-col items-center justify-between">
+          {/* <span className="absolute top-5 font-display text-4xl">{`"`}</span> */}
+          <div className="flex h-full w-1/2 flex-row items-center justify-around">
+            <button
+              className="rounded py-2 px-4 text-2xl font-bold text-black/50 hover:text-black md:text-4xl"
               onClick={() => {
-                setCurrentTestimonial(testimonial.id);
+                rotateTestimonial("prev");
               }}
-            ></span>
-          ))}
+            >
+              {"<"}
+            </button>
+            {/* diplay testimonial only if the testimonial id equals currentTestimonial  */}
+            {testimonials
+              .filter((testimonial) => testimonial.id === currentTestimonial)
+              .map((testimonial) => (
+                <div
+                  key={testimonial.id}
+                  className="flex h-full flex-col items-center justify-center"
+                >
+                  <p className="text-md max-w-xl">{testimonial.text}</p>
+                  <p className="text-xl">{"- " + testimonial.name}</p>
+                </div>
+              ))}
+            <button
+              className="rounded py-2 px-4 text-2xl font-bold text-black/50 hover:text-black md:text-4xl"
+              onClick={() => {
+                rotateTestimonial("next");
+              }}
+            >
+              {">"}
+            </button>
+          </div>
+          <div className="flex h-full flex-row items-center justify-center space-x-2 pt-8">
+            {testimonials.map((testimonial) => (
+              <span
+                key={testimonial.id}
+                className={cn(
+                  "h-2 w-2 cursor-pointer rounded-full bg-black/25",
+                  currentTestimonial == testimonial.id && "bg-black/75"
+                )}
+                onClick={() => {
+                  setCurrentTestimonial(testimonial.id);
+                }}
+              ></span>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </SectionContainer>
   );
 };
 

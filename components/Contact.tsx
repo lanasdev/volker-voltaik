@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { PhoneCall, Envelope, UserList, MapPin } from "phosphor-react";
 import Map from "public/img/map.png";
+import SectionContainer from "./SectionContainer";
 
 const Contact = () => {
   const iconSize = 32;
@@ -34,24 +35,29 @@ const Contact = () => {
   ];
 
   return (
-    <section className="mt-8 w-full bg-yellow px-4 pt-12 pb-12 text-black md:px-16">
-      <h3 className="text-xl font-semibold">Kontakt</h3>
-      <div className="flex flex-col justify-around pt-16 md:flex-row">
-        <Image src={Map} alt="Map" />
-        <div className="flex flex-col items-baseline justify-center space-y-3">
-          <span className="mb-2 font-semibold">Volker Voltaik GmbH</span>
-          {data.map((item) => (
-            <a
-              key={item.id}
-              href={item.href}
-              className="flex flex-row items-center justify-center  "
-            >
-              {item.icon}
-              <span className="pl-4">{item.text}</span>
-            </a>
-          ))}
+    <section
+      className="mt-8 w-full bg-yellow px-4 pt-12 pb-12 text-black md:px-16"
+      id="kontakt"
+    >
+      <SectionContainer>
+        <h3 className="text-xl font-semibold">Kontakt</h3>
+        <div className="flex flex-col justify-around pt-16 md:flex-row">
+          <Image src={Map} alt="Map" />
+          <div className="flex flex-col items-baseline justify-center space-y-3">
+            <span className="mb-2 font-semibold">Volker Voltaik GmbH</span>
+            {data.map((item) => (
+              <a
+                key={item.id}
+                href={item.href}
+                className="flex flex-row items-center justify-center  "
+              >
+                {item.icon}
+                <span className="pl-4">{item.text}</span>
+              </a>
+            ))}
+          </div>
         </div>
-      </div>
+      </SectionContainer>
     </section>
   );
 };
