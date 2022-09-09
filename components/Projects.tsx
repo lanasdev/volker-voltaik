@@ -48,7 +48,7 @@ const projekte = [
 const Projects = () => {
     return (
         <SectionContainer>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-16 pb-24">
+            <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-4 gap-4 gap-y-16 pb-24">
                 {projekte.map((projekt) => (
                     <Link href={`/projekte/${projekt.slug}`} key={projekt.slug}>
                         <a className="flex flex-col items-start justify-start">

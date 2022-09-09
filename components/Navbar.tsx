@@ -25,11 +25,11 @@ const Navbar = ({ router }) => {
     <Disclosure as="nav" className="text-black">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div className="mx-auto py-2 px-2 sm:px-6 lg:px-16">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-black hover:bg-black  hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <X className="block h-6 w-6" aria-hidden="true" />
@@ -39,18 +39,20 @@ const Navbar = ({ router }) => {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center">
-                  <Image
-                    className="block h-10 w-auto lg:hidden"
-                    src={ImgLogo}
-                    alt="Volker Voltaik"
-                  />
-                  <Image
-                    className="hidden h-10 w-auto lg:block"
-                    src={ImgLogo}
-                    alt="Volker Voltaik"
-                  />
-                </div>
+                <Link href="/">
+                  <a className="flex flex-shrink-0 items-center">
+                    <Image
+                      className="block h-10 w-auto lg:hidden"
+                      src={ImgLogo}
+                      alt="Volker Voltaik"
+                    />
+                    <Image
+                      className="hidden h-10 w-auto lg:block"
+                      src={ImgLogo}
+                      alt="Volker Voltaik"
+                    />
+                  </a>
+                </Link>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
@@ -60,7 +62,7 @@ const Navbar = ({ router }) => {
                         className={cn(
                           item.href == path
                             ? "underline decoration-yellow decoration-2 underline-offset-2 hover:bg-black/10"
-                            : "decoration-2 underline-offset-2 hover:bg-black/10	 hover:underline hover:decoration-yellow",
+                            : "decoration-2 underline-offset-2 hover:bg-black/10 hover:underline hover:decoration-yellow",
                           "rounded-lg px-[20px] py-[10px] font-medium text-black"
                         )}
                         aria-current={item.href == path ? "page" : undefined}
@@ -76,9 +78,9 @@ const Navbar = ({ router }) => {
               </div>
             </div>
           </div>
-
+          {/* Mobile Menu */}
           <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 px-2 pt-2 pb-3">
+            <div className="space-y-2 px-2 pt-2 pb-3">
               {navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}
@@ -86,9 +88,9 @@ const Navbar = ({ router }) => {
                   href={item.href}
                   className={cn(
                     item.href == path
-                      ? "bg-black/75 text-white"
-                      : "hover:bg-gray-700 hover:text-white",
-                    "block rounded-md px-3 py-2 text-base font-medium"
+                      ? "bg-black text-white "
+                      : "hover:text-white",
+                    "block rounded-md px-3 py-2 text-base font-medium hover:bg-yellow transition-all duration-75"
                   )}
                   aria-current={item.href == path ? "page" : undefined}
                 >

@@ -4,9 +4,8 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    
     FontFace: {
-      "Inter": {
+      Inter: {
         fontFamily: "Inter",
         src: "url('/fonts/Inter-Regular.woff2') format('woff2')",
         fontWeight: 400,
@@ -18,7 +17,7 @@ module.exports = {
         fontWeight: 600,
         fontStyle: "normal",
       },
-      "Promt": {
+      Promt: {
         fontFamily: "Promt",
         src: "url('/fonts/Promt-SemiBold.ttf') format('ttf')",
         fontWeight: 600,
@@ -26,8 +25,8 @@ module.exports = {
       },
     },
     fontFamily: {
-      'sans': ['Inter', 'sans-serif'],
-      'display': ['Promt', 'display'],
+      sans: ["Inter", "sans-serif"],
+      display: ["Promt", "display"],
     },
 
     extend: {
@@ -35,6 +34,10 @@ module.exports = {
         black: "#1b1b1b",
         white: "#fff",
         yellow: "#FFB70A",
+      },
+      spacing: {
+        "90screen": "90vh",
+        "50screen": "50vh",
       },
     },
   },
