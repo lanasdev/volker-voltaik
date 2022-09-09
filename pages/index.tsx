@@ -12,7 +12,7 @@ const IndexPage = () => (
   <Layout title="Volker Voltaik">
     <HeroSection />
     {/* <div className="absolute bottom-0 right-0 left-0 w-full h-full bg-yellow z-0 skew-y-3 origin-top-left"></div> */}
-    <div className="h-40"></div>
+    {/* <div className="h-40"></div> */}
     <Projects />
     <Testimonials />
     <Contact />
