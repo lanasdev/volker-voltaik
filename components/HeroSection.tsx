@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/future/image";
 import Link from "next/link";
 import LogoBig from "components/LogoBig";
 // import ManSolar from "public/img/ManSolar.png";
@@ -89,21 +89,24 @@ const HeroSection = () => {
   return (
     <section className="flex flex-col md:flex-row w-screen min-h-screen pb-24">
       {/* flex flex-col items-center justify-between px-16 pt-8 md:flex-row md:px-0  */}
-      <div className="w-screen relative flex-1">
+      <div className="relative w-screen flex-1">
         <Image
           src={SolarHome}
           alt="Man holding Volker Voltaik Solar Panel"
-          className="w-full md:rounded-r-md"
-          objectFit="cover"
-          layout="fill" />
+          sizes="100vw"
+          // fill
+          priority={true}
+          placeholder={"blur"}
+          className="md:rounded-r-md object-cover object-center md:absolute md:inset-0 h-full w-full"
+        />
       </div>
       {/* Hero Text Area */}
-      <div className="flex flex-col flex-1 items-start justify-center px-16">
+      <div className="flex flex-col flex-1 items-start justify-center px-16 pt-16 md:pt-0">
         <h1 className="font-display text-2xl font-semibold md:text-4xl">
           Volker Voltaik <br className="block md:hidden" /> -
           Elektroinstallateur
         </h1>
-        <p className="font-regular pt-6 pb-10 leading-7 md:max-w-xl">
+        <p className="font-regular pt-6 pb-10 leading-7 md:max-w-xl ">
           Es gibt viele Gründe in eine Solaranlage von Volker Voltaik zu
           investieren. Steigende Gaspreise, mögliche Blackouts oder einfach
           günstigere Strompreise. Alle Gründe sind legitim und deshalb wir
