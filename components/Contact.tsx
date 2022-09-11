@@ -43,7 +43,7 @@ const Contact = () => {
         <h3 className="text-xl font-semibold">Kontakt</h3>
         <div className="flex flex-col justify-around pt-16 md:flex-row">
           <Image src={Map} alt="Map" />
-          <div className="flex flex-col items-baseline justify-center space-y-3">
+          <div className="flex flex-col items-baseline justify-center space-y-4 pt-16 md:pt-0 md:pl-8">
             <span className="mb-2 font-semibold">Volker Voltaik GmbH</span>
             {data.map((item) => (
               <a

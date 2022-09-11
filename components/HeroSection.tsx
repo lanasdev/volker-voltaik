@@ -87,7 +87,7 @@ const Leistungen = () => {
 
 const HeroSection = () => {
   return (
-    <section className="flex flex-col md:flex-row w-screen min-h-screen pb-24">
+    <section className="flex flex-col md:flex-row w-screen min-h-screen pb-24 ">
       {/* flex flex-col items-center justify-between px-16 pt-8 md:flex-row md:px-0  */}
       <div className="relative w-screen flex-1">
         <Image

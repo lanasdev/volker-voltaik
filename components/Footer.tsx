@@ -90,37 +90,37 @@ const FooterData = [
 ];
 
 const Footer = () => (
-  <section className="h-full bg-zinc-700 pt-32 pb-16 text-white md:px-16">
+  <section className=" bg-black/95 pt-20 md:pt-32 pb-16 text-white md:px-16">
     <SectionContainer>
-      <div className="flex flex-col items-center justify-around md:flex-row">
+      <div className="flex flex-col items-center justify-between md:justify-around md:flex-row min-h-[25vh]">
         <div className="flex flex-col justify-center">
           <Logo />
           <p className="max-w-xs pt-6 text-sm">
             „Die Gegenwart gehört ihnen, die Zukunft, für die ich gearbeitet
             habe, gehört mir.“ <br />- Nikola Tesla
           </p>
-          <div className="flex space-x-4 pt-4" id="socials">
+          <div className="flex space-x-8 pt-4" id="socials">
             <Link href="https://instagram.com/lanasdev">
-              <a className="">
+              <a className=" transition-all hover:rotate-12">
                 <InstagramLogo size={32} />
               </a>
             </Link>
             <Link href="https://twitter.com/lanasdev">
-              <a className="">
-                <TwitterLogo size={32} />
+              <a className=" transition-all hover:rotate-12">
+                <TwitterLogo size={32} className="hover:fill-blue-400" />
               </a>
             </Link>
             <Link href="https://youtube.com/">
-              <a className="">
+              <a className=" transition-all hover:rotate-12">
                 <YoutubeLogo size={32} />
               </a>
             </Link>
           </div>
         </div>
 
-        <div className="flex flex-row flex-wrap space-x-8 ">
+        <div className="flex flex-row flex-wrap md:space-x-8 pt-16 md:pt-0 ">
           {FooterData.map((item, index) => (
-            <div className="flex flex-col justify-start space-y-1" key={index}>
+            <div className="flex flex-col justify-start space-y-2 px-2 pt-10" key={index}>
               <Link href={item.href}>
                 <a className="pb-4 font-bold decoration-white hover:underline">
                   {item.title}
