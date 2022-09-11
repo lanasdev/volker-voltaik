@@ -1,8 +1,15 @@
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { PhoneCall, Envelope, UserList, MapPin } from "phosphor-react";
-import Map from "public/img/map.png";
+import { useEffect, Suspense } from "react";
+// import Map from "public/img/map.png";
 import SectionContainer from "./SectionContainer";
+
+const DynamicMap = dynamic(() => import('components/Map'), {
+  ssr: false,
+  loading: () => <p>Loading...</p>,
+})
 
 const Contact = () => {
   const iconSize = 32;
@@ -42,7 +49,8 @@ const Contact = () => {
       <SectionContainer>
         <h3 className="text-xl font-semibold">Kontakt</h3>
         <div className="flex flex-col justify-around pt-16 md:flex-row">
-          <Image src={Map} alt="Map" />
+          {/* <Image src={Map} alt="Map" /> */}
+          <DynamicMap />
           <div className="flex flex-col items-baseline justify-center space-y-4 pt-16 md:pt-0 md:pl-8">
             <span className="mb-2 font-semibold">Volker Voltaik GmbH</span>
             {data.map((item) => (
