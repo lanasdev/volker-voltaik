@@ -34,26 +34,26 @@ const Map = () => {
         //     draggable: true
         // }).setLngLat([48.7128776, 9.2924396]).addTo(map.current);
     });
-    useEffect(() => {
-        if (!map.current) return; // wait for map to initialize
+    // useEffect(() => {
+    //     if (!map.current) return; // wait for map to initialize
 
-        map.current.on('click', (event) => {
-            const features = map.queryRenderedFeatures(event.point, {
-                layers: ['chicago-parks']
-            });
-            if (!features.length) {
-                return;
-            }
-            const feature = features[0];
+    //     map.current.on('click', (event) => {
+    //         const features = map.queryRenderedFeatures(event.point, {
+    //             layers: ['chicago-parks']
+    //         });
+    //         if (!features.length) {
+    //             return;
+    //         }
+    //         const feature = features[0];
 
-            const popup = new mapboxgl.Popup({ offset: [0, -15] })
-                .setLngLat(feature.geometry.coordinates)
-                .setHTML(
-                    `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
-                )
-                .addTo(map.current);
-        });
-    });
+    //         const popup = new mapboxgl.Popup({ offset: [0, -15] })
+    //             .setLngLat(feature.geometry.coordinates)
+    //             .setHTML(
+    //                 `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+    //             )
+    //             .addTo(map.current);
+    //     });
+    // });
     return (
         <div className='relative'>
             <div className="sidebar text-white absolute top-0 left-0 m-3 rounded py-2 px-4 bg-cyan-600/75 z-10">
