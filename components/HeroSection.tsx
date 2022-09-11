@@ -102,6 +102,7 @@ const HeroSection = () => {
       </div>
       {/* Hero Text Area */}
       <div className="flex flex-col flex-1 items-start justify-center px-16 pt-16 md:pt-0">
+        {/* <mark className="bg-yellow	">Solarinstallationen</mark> */}
         <h1 className="font-display text-2xl font-semibold md:text-4xl">
           Volker Voltaik <br className="block md:hidden" /> -
           Elektroinstallateur

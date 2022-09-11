@@ -7,9 +7,13 @@ import { useEffect, Suspense } from "react";
 import SectionContainer from "./SectionContainer";
 
 const DynamicMap = dynamic(() => import('components/Map'), {
-  ssr: false,
+  // ssr: false,
+  suspense: true,
   loading: () => <p>Loading...</p>,
 })
+// const DynamicMap = dynamic(() => import('components/MapNew'), {
+//   suspense: true
+// })
 
 const Contact = () => {
   const iconSize = 32;
@@ -49,8 +53,9 @@ const Contact = () => {
       <SectionContainer>
         <h3 className="text-xl font-semibold">Kontakt</h3>
         <div className="flex flex-col justify-around pt-16 md:flex-row">
-          {/* <Image src={Map} alt="Map" /> */}
-          <DynamicMap />
+          <Suspense fallback={<p>Loading...</p>}>
+            <DynamicMap />
+          </Suspense>
           <div className="flex flex-col items-baseline justify-center space-y-4 pt-16 md:pt-0 md:pl-8">
             <span className="mb-2 font-semibold">Volker Voltaik GmbH</span>
             {data.map((item) => (

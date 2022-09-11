@@ -72,10 +72,10 @@ const Testimonials = () => {
               .map((testimonial) => (
                 <div
                   key={testimonial.id}
-                  className="flex h-full flex-col items-center justify-center"
+                  className="flex min-h-[20vh]  flex-col items-center justify-center"
                 >
-                  <p className="text-md max-w-xl">{testimonial.text}</p>
-                  <p className="text-xl">{"- " + testimonial.name}</p>
+                  <p className="text-md w-[50vw] md:w-full sm:max-w-3xl">{testimonial.text}</p>
+                  <p className="pt-4">{"- " + testimonial.name}</p>
                 </div>
               ))}
             <button
