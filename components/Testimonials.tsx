@@ -54,7 +54,7 @@ const Testimonials = () => {
   return (
     <SectionContainer>
       <section className="h-full w-full pb-16">
-        <h3 className="pb-32 text-xl font-semibold">Was unsere Kunden sagen</h3>
+        <h3 className="pb-32 text-xl md:text-2xl font-semibold">Was unsere Kunden sagen</h3>
         <div className="mx-auto flex h-full flex-col items-center justify-between">
           {/* <span className="absolute top-5 font-display text-4xl">{`"`}</span> */}
           <div className="flex h-full w-1/2 flex-row items-center justify-around">

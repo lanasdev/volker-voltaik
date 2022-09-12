@@ -101,17 +101,17 @@ const Footer = () => (
           </p>
           <div className="flex space-x-8 pt-4" id="socials">
             <Link href="https://instagram.com/lanasdev">
-              <a className=" transition-all hover:rotate-12">
+              <a className=" transition-all hover:rotate-12" aria-label="Volker Voltaik Instagram Account">
                 <InstagramLogo size={32} />
               </a>
             </Link>
             <Link href="https://twitter.com/lanasdev">
-              <a className=" transition-all hover:rotate-12">
+              <a className=" transition-all hover:rotate-12" aria-label="Volker Voltaik Twitter Account">
                 <TwitterLogo size={32} className="hover:fill-blue-400" />
               </a>
             </Link>
             <Link href="https://youtube.com/">
-              <a className=" transition-all hover:rotate-12">
+              <a className=" transition-all hover:rotate-12" aria-label="Volker Voltaik Youtube Kanal">
                 <YoutubeLogo size={32} />
               </a>
             </Link>
