@@ -19,29 +19,30 @@ const Leistungen = () => {
       id: 0,
     },
     {
-      name: "Elektrische Anlagen",
-      icon: <Lightning size={iconSize} />,
-      slug: "elektrische-anlagen",
-      id: 1,
-    },
-    {
       name: "Energiespeicher",
       icon: <BatteryChargingVertical size={iconSize} />,
       slug: "energiespeicher",
+      id: 1,
+    },
+    {
+      name: "Elektrik",
+      icon: <Lightning size={iconSize} />,
+      slug: "elektrische-anlagen",
       id: 2,
     },
+
   ];
   return (
-    <div className="flex flex-col" >
-      <h2 className="pt-16 pb-8 text-2xl font-semibold">
+    <div className="" >
+      <h2 className="pt-16 pb-8 text-xl md:text-2xl font-semibold">
         Unsere Leistungen
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-3 " id="LeistungenIcons">
+      <div className="grid gap-x-6 grid-cols-2 md:grid-cols-3 flex-wrap " id="LeistungenIcons">
         <Link
           href={`/leistungen/${LeistungenData[0].slug}`}
           key={LeistungenData[0].id}
         >
-          <a className="flex flex-col items-center justify-start py-4">
+          <a className="flex flex-col items-center py-4">
             <span className="mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-black text-2xl font-semibold text-white hover:bg-yellow">
               {/* {Leistungen[0].icon} */}
               <Sun size={iconSize} />
@@ -56,7 +57,7 @@ const Leistungen = () => {
           href={`/leistungen/${LeistungenData[1].slug}`}
           key={LeistungenData[1].id}
         >
-          <a className="flex flex-col items-center justify-start py-4">
+          <a className="flex flex-col items-center py-4">
             <span className="mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-black text-2xl font-semibold text-white hover:bg-yellow">
               {LeistungenData[1].icon}
             </span>
@@ -70,7 +71,7 @@ const Leistungen = () => {
           href={`/leistungen/${LeistungenData[2].slug}`}
           key={LeistungenData[2].id}
         >
-          <a className="flex flex-col items-center justify-start py-4">
+          <a className="flex flex-col items-center py-4">
             <span className="mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-black text-2xl font-semibold text-white hover:bg-yellow">
               {LeistungenData[2].icon}
             </span>
@@ -87,7 +88,7 @@ const Leistungen = () => {
 
 const HeroSection = () => {
   return (
-    <section className="flex flex-col md:flex-row w-screen min-h-screen pb-24 ">
+    <section className="flex flex-col md:flex-row md:min-h-screen w-screen pb-24 ">
       {/* flex flex-col items-center justify-between px-16 pt-8 md:flex-row md:px-0  */}
       <div className="relative w-screen flex-1">
         <Image
@@ -101,7 +102,7 @@ const HeroSection = () => {
         />
       </div>
       {/* Hero Text Area */}
-      <div className="flex flex-col flex-1 items-start justify-center px-16 pt-16 md:pt-0">
+      <div className="flex flex-col flex-1 items-start justify-center px-8 md:px-16 pt-16 md:pt-0">
         {/* <mark className="bg-yellow	">Solarinstallationen</mark> */}
         <h1 className="font-display text-2xl font-semibold md:text-4xl">
           Volker Voltaik <br className="block md:hidden" /> -

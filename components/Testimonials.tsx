@@ -72,14 +72,14 @@ const Testimonials = () => {
               .map((testimonial) => (
                 <div
                   key={testimonial.id}
-                  className="flex min-h-[20vh]  flex-col items-center justify-center"
+                  className="flex min-h-[20vh] flex-col items-center justify-center"
                 >
                   <p className="text-md w-[50vw] md:w-full sm:max-w-3xl">{testimonial.text}</p>
                   <p className="pt-4">{"- " + testimonial.name}</p>
                 </div>
               ))}
             <button
-              className="rounded py-2 px-4 text-2xl font-bold text-black/50 hover:text-black md:text-4xl"
+              className="rounded px-4 text-2xl font-bold text-black/50 hover:bg-black/25 py-16 hover:text-black md:text-4xl"
               onClick={() => {
                 rotateTestimonial("next");
               }}
