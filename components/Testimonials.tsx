@@ -59,7 +59,7 @@ const Testimonials = () => {
           {/* <span className="absolute top-5 font-display text-4xl">{`"`}</span> */}
           <div className="flex h-full w-1/2 flex-row items-center justify-around">
             <button
-              className="rounded py-2 px-4 text-2xl font-bold text-black/50 hover:text-black md:text-4xl"
+              className="rounded px-4 text-2xl font-bold  text-black/50 hover:bg-black/25 py-16 hover:text-black md:text-4xl"
               onClick={() => {
                 rotateTestimonial("prev");
               }}
