@@ -21,7 +21,8 @@
       "api/*": ["pages/api/*"],
       "pages/*": ["pages/*"],
       "public/*": ["public/*"],
-      "data/*": ["data/*"]
+      "data/*": ["data/*"],
+      "img/*": ["public/img/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

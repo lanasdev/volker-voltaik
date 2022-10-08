@@ -1,6 +1,5 @@
 // import React, { useRef, useEffect, useState } from 'react'
 import "mapbox-gl/dist/mapbox-gl.css";
-const accessToken = process.env.MAPBOX_TOKEN;
 
 import { Component, useState } from "react";
 import Map, {
@@ -10,6 +9,10 @@ import Map, {
 } from "react-map-gl";
 
 const ReactMap = () => {
+  const accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+
+  console.log(accessToken);
+
   const [viewport, setViewport] = useState({
     width: "100vw",
     height: "100vh",
@@ -33,9 +36,9 @@ const ReactMap = () => {
         zoom: 4,
       }}
       reuseMaps={true}
-      style={{ width: "100%", height: "40em" }}
+      style={{ width: "100%", height: "32em" }}
       mapStyle="mapbox://styles/mapbox/streets-v11"
-      mapboxAccessToken="pk.eyJ1IjoibGFuYXNkZXYiLCJhIjoiY2t2YTBuaDdiMGFoODJwcGd3cWQ3ZnJydSJ9.HlBr2HZZkJ1gJdTgiFT-CA"
+      mapboxAccessToken={accessToken}
       onMove={(evt) =>
         setViewport({
           width: "100vw",
