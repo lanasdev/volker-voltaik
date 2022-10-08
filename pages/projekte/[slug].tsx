@@ -32,7 +32,7 @@ const Project = ({ project }) => {
           <p className="pb-2 text-lg ">{project.description}</p>
           <h2 className="pt-8 font-semibold">Daten und Fakten</h2>
           <div className="grid grid-cols-2 gap-4 pt-2">
-            <span className="">{"Fläche: " + project.details.size + "m2"}</span>
+            <span className="">{"Fläche: " + project.details.size + "m²"}</span>
             <span className="">{"kWp: " + project.details.kwp}</span>
             <span className="">{"Ort: " + project.details.location}</span>
             <span className="">{"Baujahr: " + project.details.year}</span>
