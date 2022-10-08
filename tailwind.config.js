@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -39,7 +40,10 @@ module.exports = {
         "90screen": "90vh",
         "50screen": "50vh",
       },
+      aspectRatio: {
+        golden: [1, 1.618],
+      },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };
