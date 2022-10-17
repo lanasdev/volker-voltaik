@@ -35,11 +35,11 @@ const Leistungen = () => {
   return (
     <div className="" >
       <h2 className="pt-16 pb-8 text-xl md:text-2xl font-semibold">
-        Unsere Leistungen
+        Unsere Fachgebiete
       </h2>
       <div className="grid gap-x-6 grid-cols-2 md:grid-cols-3 flex-wrap " id="LeistungenIcons">
         <Link
-          href={`/leistungen/${LeistungenData[0].slug}`}
+          href={`/fachgebiete/${LeistungenData[0].slug}`}
           key={LeistungenData[0].id}
         >
           <a className="flex flex-col items-center py-4">
@@ -54,7 +54,7 @@ const Leistungen = () => {
           </a>
         </Link>
         <Link
-          href={`/leistungen/${LeistungenData[1].slug}`}
+          href={`/fachgebiete/${LeistungenData[1].slug}`}
           key={LeistungenData[1].id}
         >
           <a className="flex flex-col items-center py-4">
@@ -68,7 +68,7 @@ const Leistungen = () => {
           </a>
         </Link>
         <Link
-          href={`/leistungen/${LeistungenData[2].slug}`}
+          href={`/fachgebiete/${LeistungenData[2].slug}`}
           key={LeistungenData[2].id}
         >
           <a className="flex flex-col items-center py-4">

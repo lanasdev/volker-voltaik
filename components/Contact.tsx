@@ -9,11 +9,8 @@ import SectionContainer from "./SectionContainer";
 const DynamicMap = dynamic(() => import("components/Map"), {
   ssr: false,
   // suspense: true,
-  loading: () => <p>Loading...</p>,
+  loading: () => <p>Lädt...</p>,
 });
-// const DynamicMap = dynamic(() => import('components/MapNew'), {
-//   suspense: true
-// })
 
 const Contact = () => {
   const iconSize = 32;
@@ -66,6 +63,7 @@ const Contact = () => {
               >
                 {item.icon}
                 <span className="pl-4">{item.text}</span>
+                <hr />
               </a>
             ))}
           </div>

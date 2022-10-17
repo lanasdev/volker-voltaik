@@ -18,7 +18,6 @@ const IndexPage = ({ projekte }) => (
     {/* <div className="h-40"></div> */}
     <Projects projekte={projekte} />
     <Testimonials />
-    <Contact />
   </Layout>
 );
 

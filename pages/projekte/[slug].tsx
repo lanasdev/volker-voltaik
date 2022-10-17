@@ -5,16 +5,15 @@ import { GetStaticProps, GetStaticPaths } from "next";
 import Layout from "components/Layout";
 
 import { projekteDaten } from "data/data";
-import Contact from "components/Contact";
 
 const Project = ({ project }) => {
-  for (const property in project.details) {
-    // if (Object.prototype.hasOwnProperty.call(project, property)) {
-    //     const element = project[property];
+  // for (const property in project.details) {
+  //   // if (Object.prototype.hasOwnProperty.call(project, property)) {
+  //   //     const element = project[property];
 
-    // }
-    console.log(property);
-  }
+  //   // }
+  //   console.log(property);
+  // }
   return (
     <Layout>
       <section className="flex min-h-[90vh] flex-col">
@@ -26,7 +25,7 @@ const Project = ({ project }) => {
           className="max-h-50screen w-screen flex-1 object-cover"
         />
         <main className="container mx-auto flex-1 px-8">
-          <h1 className="pb-2 pt-4 text-2xl font-semibold md:pt-16 md:text-4xl">
+          <h1 className="pb-4 pt-8 text-2xl font-semibold md:pt-16 md:text-4xl">
             {"Projekt: " + project.name}
           </h1>
           <p className="pb-2 text-lg ">{project.description}</p>
@@ -74,7 +73,6 @@ const Project = ({ project }) => {
           {/* <pre>{JSON.stringify(project, null, 2)}</pre> */}
         </main>
       </section>
-      <Contact />
     </Layout>
   );
 };

@@ -11,8 +11,6 @@ import Map, {
 const ReactMap = () => {
   const accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
-  console.log(accessToken);
-
   const [viewport, setViewport] = useState({
     width: "100vw",
     height: "100vh",
