@@ -30,14 +30,16 @@ const Leistungen = () => {
       slug: "elektrische-anlagen",
       id: 2,
     },
-
   ];
   return (
-    <div className="" >
-      <h2 className="pt-16 pb-8 text-xl md:text-2xl font-semibold">
+    <div className="">
+      <h2 className="pt-16 pb-8 text-xl font-semibold md:text-2xl">
         Unsere Fachgebiete
       </h2>
-      <div className="grid gap-x-6 grid-cols-2 md:grid-cols-3 flex-wrap " id="LeistungenIcons">
+      <div
+        className="grid grid-cols-2 flex-wrap gap-x-6 md:grid-cols-3 "
+        id="LeistungenIcons"
+      >
         <Link
           href={`/fachgebiete/${LeistungenData[0].slug}`}
           key={LeistungenData[0].id}
@@ -83,12 +85,12 @@ const Leistungen = () => {
         </Link>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const HeroSection = () => {
   return (
-    <section className="flex flex-col md:flex-row md:min-h-screen w-screen pb-24 ">
+    <section className="flex w-screen flex-col pb-24 md:min-h-screen md:flex-row ">
       {/* flex flex-col items-center justify-between px-16 pt-8 md:flex-row md:px-0  */}
       <div className="relative w-screen flex-1">
         <Image
@@ -98,11 +100,11 @@ const HeroSection = () => {
           // fill
           priority={true}
           placeholder={"blur"}
-          className="md:rounded-r-md object-cover object-center md:absolute md:inset-0 h-full w-full"
+          className="h-full w-full object-cover object-center md:absolute md:inset-0 md:rounded-r-md"
         />
       </div>
       {/* Hero Text Area */}
-      <div className="flex flex-col flex-1 items-start justify-center px-8 md:px-16 pt-16 md:pt-0">
+      <div className="flex flex-1 flex-col items-start justify-center px-8 pt-16 md:px-16 md:pt-0">
         {/* <mark className="bg-yellow	">Solarinstallationen</mark> */}
         <h1 className="font-display text-2xl font-semibold md:text-4xl">
           Volker Voltaik <br className="block md:hidden" /> -
@@ -111,14 +113,14 @@ const HeroSection = () => {
         <p className="font-regular pt-6 pb-10 leading-7 md:max-w-xl ">
           Es gibt viele Gründe in eine Solaranlage von Volker Voltaik zu
           investieren. Steigende Gaspreise, mögliche Blackouts oder einfach
-          günstigere Strompreise. Alle Gründe sind legitim und deshalb wir
-          passen immer Ihre Anlage, Ihren wünschen an.
+          günstigere Strompreise. Deshalb wir passen Ihre Anlage immer Ihren
+          wünschen an.
         </p>
         <CallToAction />
         <Leistungen />
       </div>
     </section>
   );
-}
+};
 
 export default HeroSection;
