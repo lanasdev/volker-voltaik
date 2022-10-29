@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/future/image";
+import Image from "next/image";
 import { GetStaticProps, GetStaticPaths } from "next";
 
 import Layout from "components/Layout";

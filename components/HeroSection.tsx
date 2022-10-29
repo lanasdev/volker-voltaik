@@ -1,4 +1,4 @@
-import Image from "next/future/image";
+import Image from "next/image";
 import Link from "next/link";
 import LogoBig from "components/LogoBig";
 // import ManSolar from "public/img/ManSolar.png";
