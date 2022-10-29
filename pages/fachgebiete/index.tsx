@@ -16,19 +16,19 @@ const Fachgebiete = ({ fachgebiete }) => {
           {fachgebiete.map((fachgebiet) => (
             <li key={fachgebiet.slug}>
               <Link href={`/fachgebiete/${fachgebiet.slug}`}>
-                <a>
-                  <Image
-                    src={fachgebiet.image}
-                    alt={fachgebiet.title}
-                    height={600}
-                    width={1920}
-                    className="h-64 w-full object-cover"
-                  />
-                  <h2 className="pt-4 text-lg font-semibold">
-                    {fachgebiet.name}
-                  </h2>
-                  <p className="pt-2 text-sm">{fachgebiet.description}</p>
-                </a>
+
+                <Image
+                  src={fachgebiet.image}
+                  alt={fachgebiet.title}
+                  height={600}
+                  width={1920}
+                  className="h-64 w-full object-cover"
+                />
+                <h2 className="pt-4 text-lg font-semibold">
+                  {fachgebiet.name}
+                </h2>
+                <p className="pt-2 text-sm">{fachgebiet.description}</p>
+
               </Link>
             </li>
           ))}

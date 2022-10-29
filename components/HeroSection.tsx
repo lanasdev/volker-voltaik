@@ -43,45 +43,45 @@ const Leistungen = () => {
         <Link
           href={`/fachgebiete/${LeistungenData[0].slug}`}
           key={LeistungenData[0].id}
-        >
-          <a className="flex flex-col items-center py-4">
-            <span className="mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-black text-2xl font-semibold text-white hover:bg-yellow">
-              {/* {Leistungen[0].icon} */}
-              <Sun size={iconSize} />
-            </span>
-            <p className="text-md font-semibold">
-              {LeistungenData[0].name}{" "}
-              {/* <span className="hidden md:inline-block">{" -->"}</span> */}
-            </p>
-          </a>
+          className="flex flex-col items-center py-4">
+
+          <span className="mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-black text-2xl font-semibold text-white hover:bg-yellow">
+            {/* {Leistungen[0].icon} */}
+            <Sun size={iconSize} />
+          </span>
+          <p className="text-md font-semibold">
+            {LeistungenData[0].name}{" "}
+            {/* <span className="hidden md:inline-block">{" -->"}</span> */}
+          </p>
+
         </Link>
         <Link
           href={`/fachgebiete/${LeistungenData[1].slug}`}
           key={LeistungenData[1].id}
-        >
-          <a className="flex flex-col items-center py-4">
-            <span className="mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-black text-2xl font-semibold text-white hover:bg-yellow">
-              {LeistungenData[1].icon}
-            </span>
-            <p className="text-md font-semibold">
-              {LeistungenData[1].name}{" "}
-              {/* <span className="hidden md:inline-block">{" -->"}</span> */}
-            </p>
-          </a>
+          className="flex flex-col items-center py-4">
+
+          <span className="mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-black text-2xl font-semibold text-white hover:bg-yellow">
+            {LeistungenData[1].icon}
+          </span>
+          <p className="text-md font-semibold">
+            {LeistungenData[1].name}{" "}
+            {/* <span className="hidden md:inline-block">{" -->"}</span> */}
+          </p>
+
         </Link>
         <Link
           href={`/fachgebiete/${LeistungenData[2].slug}`}
           key={LeistungenData[2].id}
-        >
-          <a className="flex flex-col items-center py-4">
-            <span className="mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-black text-2xl font-semibold text-white hover:bg-yellow">
-              {LeistungenData[2].icon}
-            </span>
-            <p className="text-md font-semibold">
-              {LeistungenData[2].name}{" "}
-              {/* <span className="hidden md:inline-block">{" -->"}</span> */}
-            </p>
-          </a>
+          className="flex flex-col items-center py-4">
+
+          <span className="mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-black text-2xl font-semibold text-white hover:bg-yellow">
+            {LeistungenData[2].icon}
+          </span>
+          <p className="text-md font-semibold">
+            {LeistungenData[2].name}{" "}
+            {/* <span className="hidden md:inline-block">{" -->"}</span> */}
+          </p>
+
         </Link>
       </div>
     </div>

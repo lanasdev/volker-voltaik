@@ -100,29 +100,29 @@ const Footer = () => (
             habe, gehört mir.“ <br />- Nikola Tesla
           </p>
           <div className="flex space-x-8 pt-4" id="socials">
-            <Link href="https://instagram.com/lanasdev">
-              <a
-                className=" transition-all hover:rotate-12"
-                aria-label="Volker Voltaik Instagram Account"
-              >
-                <InstagramLogo size={32} />
-              </a>
+            <Link
+              href="https://instagram.com/lanasdev"
+              className=" transition-all hover:rotate-12"
+              aria-label="Volker Voltaik Instagram Account">
+
+              <InstagramLogo size={32} />
+
             </Link>
-            <Link href="https://twitter.com/lanasdev">
-              <a
-                className=" transition-all hover:rotate-12"
-                aria-label="Volker Voltaik Twitter Account"
-              >
-                <TwitterLogo size={32} className="hover:fill-blue-400" />
-              </a>
+            <Link
+              href="https://twitter.com/lanasdev"
+              className=" transition-all hover:rotate-12"
+              aria-label="Volker Voltaik Twitter Account">
+
+              <TwitterLogo size={32} className="hover:fill-blue-400" />
+
             </Link>
-            <Link href="https://youtube.com/">
-              <a
-                className=" transition-all hover:rotate-12"
-                aria-label="Volker Voltaik Youtube Kanal"
-              >
-                <YoutubeLogo size={32} />
-              </a>
+            <Link
+              href="https://youtube.com/"
+              className=" transition-all hover:rotate-12"
+              aria-label="Volker Voltaik Youtube Kanal">
+
+              <YoutubeLogo size={32} />
+
             </Link>
           </div>
         </div>
@@ -133,17 +133,22 @@ const Footer = () => (
               className="flex flex-col justify-start space-y-2 px-2 pt-10"
               key={index}
             >
-              <Link href={item.href}>
-                <a className="pb-4 font-bold decoration-white hover:underline">
-                  {item.title}
-                </a>
+              <Link
+                href={item.href}
+                className="pb-4 font-bold decoration-white hover:underline">
+
+                {item.title}
+
               </Link>
               {item.children.map((child, index) => (
-                <Link href={child.href} key={index}>
-                  <a className="text-sm decoration-white hover:underline">
-                    {child.title}
-                  </a>
-                </Link>
+                (<Link
+                  href={child.href}
+                  key={index}
+                  className="text-sm decoration-white hover:underline">
+
+                  {child.title}
+
+                </Link>)
               ))}
             </div>
           ))}
