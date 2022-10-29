@@ -1,3 +1,5 @@
+/** @type {import('next').NextConfig} */
+
 const securityHeaders = [
   {
     key: "X-DNS-Prefetch-Control",
@@ -13,7 +15,7 @@ const securityHeaders = [
   },
 ];
 
-module.exports = {
+const nextConfig = {
   images: {
     domains: ["images.unsplash.com"],
     formats: ["image/avif", "image/webp"],
@@ -28,3 +30,5 @@ module.exports = {
     ];
   },
 };
+
+module.exports = nextConfig;
