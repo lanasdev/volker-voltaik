@@ -3,7 +3,6 @@ import Link from "next/link";
 import Head from "next/head";
 
 import Navbar from "components/Navbar";
-import Contact from "components/Contact";
 import Footer from "components/Footer";
 
 type Props = {
@@ -45,7 +44,6 @@ const Layout = ({ children, title = "Volker Voltaik" }: Props) => (
     </Head>
     <Navbar />
     {children}
-    <Contact />
     <Footer />
   </div>
 );

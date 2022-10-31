@@ -45,7 +45,7 @@ const IndexPage = () => (
       {/* </div> */}
       <Testimonials />
       <Team />
-      {/* <Contact /> */}
+      <Contact />
     </main>
   </Layout>
 );
@@ -59,7 +59,7 @@ const Hero = () => {
         <h1 className="max-w-sm text-3xl leading-9">
           Wir helfen Ihnen Ihre Stromkosten zu minimieren
         </h1>
-        {/* <ContactButton /> */}
+        <ContactButton href="#kontakt" />
       </div>
       <div className="relative w-full">
         <h2 className=" absolute -top-8 right-0 ml-60 max-w-xs border-l-2 border-black pl-4 text-xl font-light text-black decoration-black">
