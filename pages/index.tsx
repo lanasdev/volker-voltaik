@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Layout from "components/Layout";
 // import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
 import HeroSection from "components/HeroSection";
