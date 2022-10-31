@@ -18,37 +18,39 @@ import heroImage from "img/pexels-erik-karits-10268580.jpg";
 import teamvolker from "img/team-volker-voltaik.png";
 import LeistungenCard from "components/Leistungen/LeistungenCard";
 import TestimonialCard from "components/TestimonialCard";
+import { getHome } from "lib/api";
 
-// export const getStaticProps: GetStaticProps = async (context) => {
-//   // const res = await fetch('https://.../posts')
-//   // const posts = await res.json()
-//   const projekte = projekteDaten;
+export const getStaticProps: GetStaticProps = async (context) => {
+  const data = await getHome();
 
-//   // By returning { props: { posts } }, the Blog component
-//   // will receive `posts` as a prop at build time
-//   return {
-//     props: {
-//       projekte,
-//     },
-//   };
-// };
+  return {
+    props: {
+      data,
+    },
+  };
+};
 
-const IndexPage = () => (
-  <Layout title="Volker Voltaik">
-    <main>
-      <Hero />
-      {/* <div className="relative px-0 pb-32"> */}
-      <div className=" relative left-0 right-0 -z-10 -mt-48 bg-[#252525] md:-mt-72 ">
-        <Leistungen />
-        <Facts />
-      </div>
-      {/* </div> */}
-      <Testimonials />
-      <Team />
-      <Contact />
-    </main>
-  </Layout>
-);
+const IndexPage = ({ data }) => {
+  return (
+    <Layout title="Volker Voltaik">
+      <pre>
+        <code>{JSON.stringify(data, null, 2)}</code>
+      </pre>
+      <main>
+        <Hero />
+        {/* <div className="relative px-0 pb-32"> */}
+        <div className=" relative left-0 right-0 -z-10 -mt-48 bg-[#252525] md:-mt-72 ">
+          <Leistungen leistungen={data.allLeistungs} />
+          <Facts />
+        </div>
+        {/* </div> */}
+        <Testimonials />
+        <Team />
+        <Contact />
+      </main>
+    </Layout>
+  );
+};
 
 export default IndexPage;
 
@@ -82,30 +84,15 @@ const Hero = () => {
   );
 };
 
-const Leistungen = () => {
+const Leistungen = (leistungen) => {
   return (
     <SectionContainer className="pt-48 md:pt-80">
       <div className="pt-28">
         <h3 className=" text-2xl font-semibold text-white">Leistungen</h3>
         <div className="grid grid-cols-1 gap-8 pt-12 md:grid-cols-2 xl:grid-cols-3 ">
-          <LeistungenCard
-            title="Photovoltaik"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vitae ultricies lacinia, nisl nunc aliquet nisl, vitae aliquet nisl nisl sit amet lorem. "
-            imageSrc="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
-            slug="photovoltaik"
-          />
-          <LeistungenCard
-            title="Stromspeicher"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vitae ultricies lacinia, nisl nunc aliquet nisl, vitae aliquet nisl nisl sit amet lorem. "
-            imageSrc="https://images.unsplash.com/photo-1615903714163-1c9768bfcd06?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
-            slug="stromspeicher"
-          />
-          <LeistungenCard
-            title="Wallbox"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vitae ultricies lacinia, nisl nunc aliquet nisl, vitae aliquet nisl nisl sit amet lorem. "
-            imageSrc="https://images.unsplash.com/photo-1615903714163-1c9768bfcd06?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
-            slug="wallbox"
-          />
+          {leistungen.leistungen.map((leistung) => (
+            <LeistungenCard key={leistung.slug} leistung={leistung} />
+          ))}
         </div>
       </div>
     </SectionContainer>

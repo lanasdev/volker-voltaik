@@ -1,61 +1,47 @@
 import { gql } from "graphql-request";
 import request from "./datocms";
+import { responsiveImageFragment } from "lib/fragments";
 
 const API_URL = "https://graphql.datocms.com";
 const API_TOKEN = process.env.DATOCMS_API_TOKEN;
 
-export const responsiveImageFragment = gql`
-  fragment responsiveImageFragment on ResponsiveImage {
-    srcSet
-    webpSrcSet
-    sizes
-    src
-    width
-    height
-    aspectRatio
-    alt
-    title
-    base64
-  }
-`;
-// ...responsiveImageFragment
-
 export const getHome = async () => {
   const HomeQuery = gql`
-    query HomeQuery() {
-  allProjekts {
-    id
-    slug
-    titel
-    beschreibung
-    bild {
-      responsiveImage(imgixParams: {w: 1200}) {
-        width
-        webpSrcSet
-        title
-        srcSet
-        src
-        sizes
-        height
-        base64
-        aspectRatio
-        alt
+    query Home {
+      allLeistungs {
+        id
+        slug
+        titel
+        beschreibung
+        bild {
+          responsiveImage(imgixParams: { w: 600 }) {
+            ...responsiveImageFragment
+          }
+        }
+      }
+      allProjekts {
+        id
+        slug
+        titel
+        leistung
+        startdatum
+        stadt
+        createdAt
+        bild {
+          responsiveImage(imgixParams: { w: 600 }) {
+            ...responsiveImageFragment
+          }
+        }
+        beschreibung
       }
     }
-    leistung
-    stadt
-    startdatum
-  }
-}
-
 
     ${responsiveImageFragment}
   `;
   const data = await request({
     query: HomeQuery,
-    variables: {
-    },
-    excludeInvalid: true,
+    variables: {},
+    excludeInvalid: false,
     includeDrafts: false,
   });
   return data;
@@ -76,7 +62,7 @@ export const getAllProjectSlugs = async () => {
     includeDrafts: true,
   });
 
-  const paths: { params: { slug: String; }; }[] = [];
+  const paths: { params: { slug: String } }[] = [];
 
   data.allProjekts.map((p) => {
     paths.push({ params: { slug: p.slug } });
@@ -99,7 +85,6 @@ export const getProjectBySlug = async (
 ) => {
   const ProjectBySlug = gql`
     query ProjectBySlug($slug: String!) {
-      
       project(filter: { slug: { eq: $slug } }) {
         title
         description
@@ -109,13 +94,12 @@ export const getProjectBySlug = async (
         year
         liveurl
         createdAt
-  
+
         image {
           responsiveImage(imgixParams: { auto: format, fit: crop, h: 900 }) {
             ...responsiveImageFragment
           }
         }
-   
       }
     }
 
@@ -132,15 +116,13 @@ export const getProjectBySlug = async (
   return {
     subscription: preview
       ? {
-        ...graphqlRequest,
-        initialData: await request(graphqlRequest),
-        token: process.env.NEXT_DATOCMS_API_TOKEN,
-      }
+          ...graphqlRequest,
+          initialData: await request(graphqlRequest),
+          token: process.env.NEXT_DATOCMS_API_TOKEN,
+        }
       : {
-        enabled: false,
-        initialData: await request(graphqlRequest),
-      },
+          enabled: false,
+          initialData: await request(graphqlRequest),
+        },
   };
 };
-
-

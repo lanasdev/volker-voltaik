@@ -23,7 +23,7 @@
       "public/*": ["public/*"],
       "data/*": ["data/*"],
       "img/*": ["public/img/*"],
-      "ui/*": ["ui/*"],
+      "lib/*": ["lib/*"],
       "styles/*": ["styles/*"]
     }
   },

@@ -1,34 +1,26 @@
+/* eslint-disable jsx-a11y/alt-text */
 import Link from "next/link";
-import Image from "next/image";
+import { Image } from "react-datocms";
 
 type LeistungenCardProps = {
-  title: string;
-  description: string;
-  imageSrc: string;
-  slug: string;
+  leistung: any;
 };
 
-const LeistungenCard = ({
-  title,
-  description,
-  imageSrc,
-  slug,
-}: LeistungenCardProps) => {
+const LeistungenCard = ({ leistung }: LeistungenCardProps) => {
   return (
     <a
-      href={`/leistungen/${slug}`}
-      className="bg-darkwhite group flex flex-col items-start justify-center rounded"
+      href={`/leistungen/${leistung.slug}`}
+      className="group flex flex-col items-start justify-center rounded bg-darkwhite"
     >
       <Image
-        src={imageSrc}
-        alt={title}
+        data={leistung.bild.responsiveImage}
         width={350}
         height={100}
         className="h-28 w-full rounded-t object-cover group-hover:scale-[103]"
       />
       <div className="p-6 group-hover:underline">
-        <h4 className="pb-4 text-xl group-hover:underline">{title}</h4>
-        <p>{description}</p>
+        <h4 className="pb-4 text-xl group-hover:underline">{leistung.titel}</h4>
+        <p>{leistung.beschreibung}</p>
       </div>
     </a>
   );
