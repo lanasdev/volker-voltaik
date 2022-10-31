@@ -1,7 +1,5 @@
-"use client";
-
 import { useForm, ValidationError } from "@formspree/react";
-import clsx from "clsx";
+import cn from "classnames";
 
 const Contactform = () => {
   const [state, handleSubmit] = useForm(
@@ -73,7 +71,7 @@ const Contactform = () => {
         <button
           type="submit"
           disabled={state.submitting}
-          className="mt-8 rounded bg-yellow py-2 px-4 font-bold hover:bg-darkYellow"
+          className="hover:bg-darkYellow mt-8 rounded bg-yellow py-2 px-4 font-bold"
         >
           Send
         </button>

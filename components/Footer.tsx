@@ -3,10 +3,10 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import ImgLogo from "@/img/Logo.png";
+import ImgLogo from "img/Logo.png";
 
 import { InstagramLogo, TwitterLogo, YoutubeLogo } from "phosphor-react";
-import SectionContainer from "ui/SectionContainer";
+import SectionContainer from "components/SectionContainer";
 
 const FooterData = [
   // {

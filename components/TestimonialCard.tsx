@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import cn from "classnames";
 
 type TestimonialCardProps = {
   id: number;
@@ -9,7 +9,7 @@ const TestimonialCard = ({ id, name, text }: TestimonialCardProps) => {
   return (
     <div
       key={id}
-      className={clsx(
+      className={cn(
         "flex flex-col items-start justify-center",
         {
           // "border-r-4 border-yellow pr-4 ": id % 2 == 0,

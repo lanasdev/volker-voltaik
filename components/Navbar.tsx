@@ -1,10 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 // import Logo from "../components/Logo";
-import { CallToActionNav } from "./CallToAction";
 import cn from "classnames";
 import ImgLogo from "public/img/Logo.png";
-import { List, X } from "phosphor-react";
+import { List, Phone, X } from "phosphor-react";
 
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
@@ -39,26 +38,24 @@ const Navbar = ({ router }) => {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <Link href="/">
-                  <a className="flex flex-shrink-0 items-center">
-                    <Image
-                      className="block h-10 w-auto lg:hidden"
-                      src={ImgLogo}
-                      height="50"
-                      alt="Volker Voltaik"
-                    />
-                    <Image
-                      className="hidden h-10 w-auto lg:block"
-                      src={ImgLogo}
-                      height="50"
-                      alt="Volker Voltaik"
-                    />
-                  </a>
+                <Link href="/" className="flex flex-shrink-0 items-center">
+                  <Image
+                    className="block h-10 w-auto lg:hidden"
+                    src={ImgLogo}
+                    height="50"
+                    alt="Volker Voltaik"
+                  />
+                  <Image
+                    className="hidden h-10 w-auto lg:block"
+                    src={ImgLogo}
+                    height="50"
+                    alt="Volker Voltaik"
+                  />
                 </Link>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
                         href={item.href}
                         className={cn(
@@ -70,7 +67,7 @@ const Navbar = ({ router }) => {
                         aria-current={item.href == path ? "page" : undefined}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -108,3 +105,24 @@ const Navbar = ({ router }) => {
 };
 
 export default withRouter(Navbar);
+
+const CallToActionNav = () => {
+  return (
+    <Link href="#kontakt">
+      <div className=" cursor-pointer">
+        <a
+          className="hidden w-[11em] items-center  justify-center rounded-lg bg-black px-4 py-2 font-medium text-white hover:bg-yellow md:flex"
+          aria-label="Angebot anfragen"
+        >
+          Angebot anfragen
+        </a>
+        <a
+          className="flex items-center justify-center rounded-lg bg-black px-4 py-2 font-medium text-white hover:bg-yellow md:hidden"
+          aria-label="Angebot anfragen"
+        >
+          <Phone size={32} />
+        </a>
+      </div>
+    </Link>
+  );
+};

@@ -1,6 +1,6 @@
 "use client";
 
-import clsx from "clsx";
+import cn from "classnames";
 
 export default function SectionContainer({
   children,
@@ -10,7 +10,7 @@ export default function SectionContainer({
   className?: string;
 }) {
   return (
-    <section className={clsx("container mx-auto max-w-4xl px-4 ", className)}>
+    <section className={cn("container mx-auto max-w-4xl px-4 ", className)}>
       {children}
     </section>
   );

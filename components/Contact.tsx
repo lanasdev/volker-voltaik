@@ -1,7 +1,7 @@
 "use client";
-import SectionContainer from "./SectionContainer";
+import SectionContainer from "components/SectionContainer";
 import { Envelope, Phone } from "phosphor-react";
-import Contactform from "@/ui/Contactform";
+import Contactform from "components/Contactform";
 
 const Contact = () => {
   return (
