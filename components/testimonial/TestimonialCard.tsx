@@ -1,14 +1,11 @@
 import cn from "classnames";
 
 type TestimonialCardProps = {
-  id: number;
-  name: String;
-  text: String;
+  testimonial: any;
 };
-const TestimonialCard = ({ id, name, text }: TestimonialCardProps) => {
+const TestimonialCard = ({ testimonial }: TestimonialCardProps) => {
   return (
     <div
-      key={id}
       className={cn(
         "flex flex-col items-start justify-center",
         {
@@ -18,8 +15,12 @@ const TestimonialCard = ({ id, name, text }: TestimonialCardProps) => {
         "border-l-4 border-yellow pl-4"
       )}
     >
-      <p className="max-w-lg ">{text}</p>
-      <p className="pt-4">{name}</p>
+      <p className="max-w-lg ">{testimonial.text}</p>
+      <p className="pt-4">{testimonial.name}</p>
+      <span className="text-black/50">
+        {testimonial.unternehmen + ", " || testimonial.stadt + ", "}{" "}
+        {testimonial.datum}
+      </span>
     </div>
   );
 };

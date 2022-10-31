@@ -17,7 +17,7 @@ import InfoTag from "components/InfoTag";
 import heroImage from "img/pexels-erik-karits-10268580.jpg";
 import teamvolker from "img/team-volker-voltaik.png";
 import LeistungenCard from "components/Leistungen/LeistungenCard";
-import TestimonialCard from "components/TestimonialCard";
+import TestimonialList from "components/testimonial/TestimonialList";
 import { getHome } from "lib/api";
 
 export const getStaticProps: GetStaticProps = async (context) => {
@@ -33,9 +33,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
 const IndexPage = ({ data }) => {
   return (
     <Layout title="Volker Voltaik">
-      <pre>
+      {/* <pre>
         <code>{JSON.stringify(data, null, 2)}</code>
-      </pre>
+      </pre> */}
       <main>
         <Hero />
         {/* <div className="relative px-0 pb-32"> */}
@@ -44,7 +44,7 @@ const IndexPage = ({ data }) => {
           <Facts />
         </div>
         {/* </div> */}
-        <Testimonials />
+        <TestimonialList allTestimonials={data.allTestimonials} />
         <Team />
         <Contact />
       </main>
@@ -140,41 +140,6 @@ const Facts = () => {
         </div>
       </SectionContainer>
     </div>
-  );
-};
-
-const Testimonials = () => {
-  const testimonialsData = [
-    {
-      id: 1,
-      name: "Reiner Reinhold",
-      text: "Von der Anfrage, bis zur Besichtigung und anschließenden Ausführung einfach nur Klasse. Kommunikation super, Termine werden eingehalten - mehr als empfehlenswert!!",
-    },
-    {
-      id: 2,
-      name: "Max Mustermann",
-      text: "Von der Anfrage, bis zur Besichtigung und anschließenden Ausführung einfach nur Klasse. Kommunikation super, Termine werden eingehalten - mehr als empfehlenswert!!",
-    },
-    {
-      id: 3,
-      name: "Max Mustermann",
-      text: "Von der Anfrage, bis zur Besichtigung und anschließenden Ausführung einfach nur Klasse. Kommunikation super, Termine werden eingehalten - mehr als empfehlenswert!!",
-    },
-  ];
-
-  return (
-    <SectionContainer className="relative pt-12">
-      <div className="grid grid-cols-1 gap-8 ">
-        {testimonialsData.map((testimonial) => (
-          <TestimonialCard
-            id={testimonial.id}
-            key={testimonial.id}
-            name={testimonial.name}
-            text={testimonial.text}
-          />
-        ))}
-      </div>
-    </SectionContainer>
   );
 };
 

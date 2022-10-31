@@ -34,6 +34,15 @@ export const getHome = async () => {
         }
         beschreibung
       }
+      allTestimonials {
+        id
+        name
+        text
+        stadt
+        unternehmen
+        datum
+        createdAt
+      }
     }
 
     ${responsiveImageFragment}
