@@ -14,19 +14,22 @@ const ProjectOverview = ({ projekte }) => {
         <h1 className="text-2xl pb-16 font-semibold md:text-4xl">Projekte</h1>
         <div className="grid grid-cols-1 gap-4 pt-4 md:grid-cols-2 md:gap-8">
           {projekte.map((project) => (
-            <Link href={`/projekte/${project.slug}`} key={project.slug}>
-              <a className="flex flex-col">
-                <Image
-                  src={project.imageBig}
-                  alt={project.title}
-                  height={600}
-                  width={1920}
-                  className="h-64 w-full object-cover"
-                />
-                <h2 className="pt-4 text-lg font-semibold">{project.name}</h2>
-                <p className="pt-2 text-sm">{project.description}</p>
-              </a>
-            </Link>
+            (<Link
+              href={`/projekte/${project.slug}`}
+              key={project.slug}
+              className="flex flex-col">
+
+              <Image
+                src={project.imageBig}
+                alt={project.title}
+                height={600}
+                width={1920}
+                className="h-64 w-full object-cover"
+              />
+              <h2 className="pt-4 text-lg font-semibold">{project.name}</h2>
+              <p className="pt-2 text-sm">{project.description}</p>
+
+            </Link>)
           ))}
         </div>
       </SectionContainer>
