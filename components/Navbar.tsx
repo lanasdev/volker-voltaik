@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/future/image";
+import Image from "next/image";
 // import Logo from "../components/Logo";
 import { CallToActionNav } from "./CallToAction";
 import cn from "classnames";
@@ -44,11 +44,13 @@ const Navbar = ({ router }) => {
                     <Image
                       className="block h-10 w-auto lg:hidden"
                       src={ImgLogo}
+                      height="50"
                       alt="Volker Voltaik"
                     />
                     <Image
                       className="hidden h-10 w-auto lg:block"
                       src={ImgLogo}
+                      height="50"
                       alt="Volker Voltaik"
                     />
                   </a>
@@ -90,7 +92,7 @@ const Navbar = ({ router }) => {
                     item.href == path
                       ? "bg-black text-white "
                       : "hover:text-white",
-                    "block rounded-md px-3 py-2 text-base font-medium hover:bg-yellow transition-all duration-75"
+                    "block rounded-md px-3 py-2 text-base font-medium transition-all duration-75 hover:bg-yellow"
                   )}
                   aria-current={item.href == path ? "page" : undefined}
                 >

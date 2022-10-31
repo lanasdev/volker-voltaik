@@ -13,21 +13,18 @@ import { projekteDaten } from "data/data";
 
 const IndexPage = ({ projekte }) => (
   <Layout title="Volker Voltaik">
-    <HeroSection />
+    {/* <HeroSection /> */}
     {/* <div className="absolute bottom-0 right-0 left-0 w-full h-full bg-yellow z-0 skew-y-3 origin-top-left"></div> */}
     {/* <div className="h-40"></div> */}
-    <Projects projekte={projekte} />
-    <Testimonials />
+    {/* <Projects projekte={projekte} /> */}
+    {/* <Testimonials /> */}
   </Layout>
 );
 
-
 export const getStaticProps: GetStaticProps = async (context) => {
-
   // const res = await fetch('https://.../posts')
   // const posts = await res.json()
   const projekte = projekteDaten;
-
 
   // By returning { props: { posts } }, the Blog component
   // will receive `posts` as a prop at build time
@@ -35,7 +32,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     props: {
       projekte,
     },
-  }
-}
+  };
+};
 
 export default IndexPage;
