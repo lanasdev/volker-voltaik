@@ -1,8 +1,22 @@
 import Link from "next/link";
+import cn from "classnames";
 
-const InfoTag = ({ text, href }: { text: string; href?: string }) => {
+const InfoTag = ({
+  text,
+  href,
+  isDark = false,
+}: {
+  text: string;
+  href?: string;
+  isDark?: boolean;
+}) => {
   return (
-    <span className="flex items-center justify-center space-x-2 rounded bg-white py-[2px] px-4 font-semibold">
+    <span
+      className={cn(
+        isDark ? "bg-black text-white" : "bg-white text-black",
+        "flex items-center justify-center space-x-2 rounded  py-[2px] px-4 font-semibold"
+      )}
+    >
       {text}
     </span>
   );

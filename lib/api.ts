@@ -19,20 +19,21 @@ export const getHome = async () => {
           }
         }
       }
-      allProjekts {
+      allProjects {
         id
         slug
-        titel
-        leistung
-        startdatum
-        stadt
+        title
+        description
+        projecttyp
+        power
+        startdate
+        city
         createdAt
-        bild {
+        image {
           responsiveImage(imgixParams: { w: 600 }) {
             ...responsiveImageFragment
           }
         }
-        beschreibung
       }
       allTestimonials {
         id
@@ -68,7 +69,7 @@ export const getAllLeistungen = async () => {
     query: LeistungenQuery,
     variables: {},
     excludeInvalid: true,
-    includeDrafts: false,
+    includeDrafts: true,
   });
   return data;
 };
@@ -103,6 +104,21 @@ export const getLeistung = async (slug) => {
             ...responsiveImageFragment
           }
         }
+        beispielprojekte {
+          id
+          slug
+          title
+          description
+          projecttyp
+          power
+          startdate
+          city
+          image {
+            responsiveImage(imgixParams: { auto: format, fit: crop, h: 700 }) {
+              ...responsiveImageFragment
+            }
+          }
+        }
       }
     }
     ${responsiveImageFragment}
@@ -116,12 +132,16 @@ export const getLeistung = async (slug) => {
   return data;
 };
 
-export const getAllProjectSlugs = async () => {
+//  Projekte
+//
+//
+
+export const getAllProjects = async () => {
   // get all project slugs for getStaticPaths
   const data = await request({
     query: gql`
-      query AllProjektSlug {
-        allProjekts {
+      {
+        allProjects {
           slug
         }
       }
@@ -131,41 +151,53 @@ export const getAllProjectSlugs = async () => {
     includeDrafts: true,
   });
 
-  const paths: { params: { slug: String } }[] = [];
-
-  data.allProjekts.map((p) => {
-    paths.push({ params: { slug: p.slug } });
-  });
-
-  // const paths = data.allProjects.map((slug: { slug: any }) => ({
-  //   params: {
-  //     slug: slug.slug,
-  //   },
-  // }));
-
-  // return pathsArray;
-  return paths;
+  return data;
 };
 
-export const getProjectBySlug = async (
-  slug: string | string[],
-  preview: boolean,
-  locale: string
-) => {
+export const getProjects = async () => {
+  const data = await request({
+    query: gql`
+      query allProjects {
+        allProjects {
+          id
+          slug
+          title
+          description
+          projecttyp
+          power
+          startdate
+          city
+          image {
+            responsiveImage(imgixParams: { auto: format, fit: crop, h: 700 }) {
+              ...responsiveImageFragment
+            }
+          }
+        }
+      }
+      ${responsiveImageFragment}
+    `,
+    variables: {},
+    excludeInvalid: true,
+    includeDrafts: true,
+  });
+
+  return data;
+};
+
+export const getProject = async (slug: string | string[], preview: boolean) => {
   const ProjectBySlug = gql`
     query ProjectBySlug($slug: String!) {
       project(filter: { slug: { eq: $slug } }) {
+        id
+        slug
         title
         description
-        slug
-        clientname
-        projecttype
-        year
-        liveurl
-        createdAt
-
+        projecttyp
+        power
+        startdate
+        city
         image {
-          responsiveImage(imgixParams: { auto: format, fit: crop, h: 900 }) {
+          responsiveImage(imgixParams: { auto: format, fit: crop, h: 700 }) {
             ...responsiveImageFragment
           }
         }
@@ -177,7 +209,7 @@ export const getProjectBySlug = async (
 
   const graphqlRequest = {
     query: ProjectBySlug,
-    variables: { limit: 10, locale, slug },
+    variables: { limit: 10, slug },
     includeDrafts: preview,
     excludeInvalid: true,
   };

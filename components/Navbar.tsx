@@ -12,7 +12,7 @@ import { withRouter } from "next/router";
 
 const navigation = [
   { name: "Home", href: "/", current: true },
-  { name: "Fachgebiete", href: "/fachgebiete", current: false },
+  { name: "Leistungen", href: "/#leistungen", current: false },
   { name: "Projekte", href: "/projekte", current: false },
   { name: "Über uns", href: "/ueber", current: false },
 ];

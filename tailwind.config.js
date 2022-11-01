@@ -41,6 +41,10 @@ const tailwindConfig = {
         yellow: "#FFB70A",
         darkYellow: "#D69700",
       },
+      scale: {
+        101: "1.01",
+        103: "1.03",
+      },
       spacing: {
         "90screen": "90vh",
         "50screen": "50vh",
