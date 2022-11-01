@@ -1,5 +1,3 @@
-"use client";
-
 import cn from "classnames";
 
 export default function SectionContainer({

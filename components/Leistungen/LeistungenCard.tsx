@@ -8,21 +8,19 @@ type LeistungenCardProps = {
 
 const LeistungenCard = ({ leistung }: LeistungenCardProps) => {
   return (
-    <a
+    <Link
       href={`/leistungen/${leistung.slug}`}
-      className="group flex flex-col items-start justify-center rounded bg-darkwhite"
+      className="group flex cursor-pointer flex-col items-start rounded  bg-darkwhite group-hover:scale-105"
     >
       <Image
         data={leistung.bild.responsiveImage}
-        width={350}
-        height={100}
-        className="h-28 w-full rounded-t object-cover group-hover:scale-[103]"
+        className="h-28 w-full rounded-t object-cover"
       />
-      <div className="p-6 group-hover:underline">
+      <div className="p-6 ">
         <h4 className="pb-4 text-xl group-hover:underline">{leistung.titel}</h4>
-        <p>{leistung.beschreibung}</p>
+        <p className="line-clamp-6">{leistung.beschreibung}</p>
       </div>
-    </a>
+    </Link>
   );
 };
 

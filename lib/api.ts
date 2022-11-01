@@ -14,7 +14,7 @@ export const getHome = async () => {
         titel
         beschreibung
         bild {
-          responsiveImage(imgixParams: { w: 600 }) {
+          responsiveImage(imgixParams: { h: 400 }) {
             ...responsiveImageFragment
           }
         }
@@ -51,6 +51,66 @@ export const getHome = async () => {
     query: HomeQuery,
     variables: {},
     excludeInvalid: false,
+    includeDrafts: false,
+  });
+  return data;
+};
+
+export const getAllLeistungen = async () => {
+  const LeistungenQuery = gql`
+    {
+      allLeistungs {
+        slug
+      }
+    }
+  `;
+  const data = await request({
+    query: LeistungenQuery,
+    variables: {},
+    excludeInvalid: true,
+    includeDrafts: false,
+  });
+  return data;
+};
+
+export const getLeistung = async (slug) => {
+  const LeistungQuery = gql`
+    query getLeistung($slug: String) {
+      leistung(filter: { slug: { eq: $slug } }) {
+        id
+        slug
+        titel
+        beschreibung
+        text {
+          value
+          links
+          blocks {
+            __typename
+            id
+            bild {
+              __typename
+              id
+              responsiveImage(imgixParams: { h: 600 }) {
+                ...responsiveImageFragment
+              }
+            }
+            description
+          }
+        }
+        createdAt
+        bild {
+          responsiveImage(imgixParams: { w: "800" }) {
+            ...responsiveImageFragment
+          }
+        }
+      }
+    }
+    ${responsiveImageFragment}
+  `;
+  const data = await request({
+    query: LeistungQuery,
+    variables: { slug: slug },
+    excludeInvalid: true,
     includeDrafts: false,
   });
   return data;

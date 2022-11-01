@@ -17,7 +17,7 @@ const securityHeaders = [
 
 module.exports = {
   images: {
-    domains: ["images.unsplash.com"],
+    domains: ["images.unsplash.com", "www.datocms-assets.com"],
     formats: ["image/avif", "image/webp"],
   },
   async headers() {

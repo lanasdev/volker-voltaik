@@ -11,7 +11,7 @@ type Props = {
 };
 
 const Layout = ({ children, title = "Volker Voltaik" }: Props) => (
-  <div>
+  <div className="bg-white text-black">
     <Head>
       <title>{title}</title>
       <meta charSet="utf-8" />
