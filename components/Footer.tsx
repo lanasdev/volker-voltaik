@@ -89,7 +89,7 @@ const FooterData = [
 
 const Footer = () => (
   <footer className=" bg-black pt-20 text-white md:px-16 md:pt-32">
-    <SectionContainer>
+    <>
       <div className="flex min-h-[25vh] flex-col justify-between md:flex-row md:items-center md:justify-around">
         <div className="flex flex-col justify-start">
           <Image src={ImgLogo} alt="Logo" className="h-24 w-24" />
@@ -148,7 +148,7 @@ const Footer = () => (
       <span className="flex justify-center py-2 text-sm">
         &copy; {new Date().getFullYear() || 2022} Volker Voltaik
       </span>
-    </SectionContainer>
+    </>
   </footer>
 );
 

@@ -1,108 +1,84 @@
-import Image from "next/image";
-import { useState } from "react";
-import cn from "classnames";
-import SectionContainer from "./SectionContainer";
+import SectionContainer from "components/SectionContainer";
+import TestimonialCard from "components/testimonial/TestimonialCard";
 
-const Testimonials = () => {
-  const [testimonials, setTestimonials] = useState([
-    {
-      id: 0,
-      name: "John Doe",
-      company: "Company",
-      text: "NULL. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.",
-      active: true,
-    },
-    {
-      id: 1,
-      name: "Jane Schmoe",
-      company: "Company",
-      text: "EINS. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.",
-      active: false,
-    },
-    {
-      id: 2,
-      name: "John Doe",
-      company: "Company",
-      text: "Zwei. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.",
-      active: false,
-    },
-    {
-      id: 3,
-      name: "Jane Schmoe",
-      company: "Company",
-      text: "Drei. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem.",
-      active: false,
-    },
-  ]);
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
-  const rotateTestimonial = (PrevOrNext: "prev" | "next") => {
-    if (PrevOrNext == "prev") {
-      if (currentTestimonial === 0) {
-        setCurrentTestimonial(testimonials.length - 1);
-      } else {
-        setCurrentTestimonial(currentTestimonial - 1);
-      }
-    } else if (PrevOrNext === "next") {
-      if (currentTestimonial < testimonials.length - 1) {
-        setCurrentTestimonial(currentTestimonial + 1);
-      } else {
-        setCurrentTestimonial(0);
-      }
-    }
-  };
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
+// const TestimonialsData = [
+//   {
+//     id: 1,
+//     text: "Wir sind sehr zufrieden mit der Arbeit von Fi-Da. Die Mitarbeiter sind sehr freundlich und kompetent. Wir können die Firma nur weiterempfehlen.",
+//     author: "Familie Schmid",
+//     detail: "aus Filderstadt",
+//   },
+//   {
+//     id: 2,
+//     text: "Top Service, Sehr Kompetente Handwerk und verstehen ihren Job sehr gut 5*",
+//     author: "Petro Shqiptar",
+//     detail: "aus Leinfelden",
+//   },
+//   {
+//     id: 3,
+//     text: "Sehr gute Arbeit, sehr freundlich und zuverlässig. Kann ich nur weiterempfehlen.",
+//     author: "Max Mustermann",
+//     detail: "aus Stuttgart",
+//   },
+//   {
+//     id: 4,
+//     text: "Sehr freundliche Firma! Sehr nette Mitarbeiter! Faire Preise! Absolut zu empfehlen!",
+//     author: "N. Soysa",
+//     detail: "aus Stuttgart",
+//   },
+// ];
+
+const responsive = {
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 2,
+    // slidesToSlide: 2, // optional, default to 1.
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 768 },
+    items: 1,
+    slidesToSlide: 1, // optional, default to 1.
+  },
+  mobile: {
+    breakpoint: { max: 768, min: 0 },
+    items: 1,
+    slidesToSlide: 1, // optional, default to 1.
+  },
+};
+
+const Testimonials = ({ allTestimonials }) => {
   return (
-    <SectionContainer>
-      <section className="h-full w-full pb-16">
-        <h3 className="pb-32 text-xl md:text-2xl font-semibold">Was unsere Kunden sagen</h3>
-        <div className="mx-auto flex h-full flex-col items-center justify-between">
-          {/* <span className="absolute top-5 font-display text-4xl">{`"`}</span> */}
-          <div className="flex h-full w-1/2 flex-row items-center justify-around">
-            <button
-              className="rounded px-4 text-2xl font-bold  text-black/50 hover:bg-black/25 py-16 hover:text-black md:text-4xl"
-              onClick={() => {
-                rotateTestimonial("prev");
-              }}
-            >
-              {"<"}
-            </button>
-            {/* diplay testimonial only if the testimonial id equals currentTestimonial  */}
-            {testimonials
-              .filter((testimonial) => testimonial.id === currentTestimonial)
-              .map((testimonial) => (
-                <div
-                  key={testimonial.id}
-                  className="flex min-h-[20vh] flex-col items-center justify-center"
-                >
-                  <p className="text-md w-[50vw] md:w-full sm:max-w-3xl">{testimonial.text}</p>
-                  <p className="pt-4">{"- " + testimonial.name}</p>
-                </div>
-              ))}
-            <button
-              className="rounded px-4 text-2xl font-bold text-black/50 hover:bg-black/25 py-16 hover:text-black md:text-4xl"
-              onClick={() => {
-                rotateTestimonial("next");
-              }}
-            >
-              {">"}
-            </button>
-          </div>
-          <div className="flex h-full flex-row items-center justify-center space-x-2 pt-8">
-            {testimonials.map((testimonial) => (
-              <span
-                key={testimonial.id}
-                className={cn(
-                  "h-2 w-2 cursor-pointer rounded-full bg-black/25",
-                  currentTestimonial == testimonial.id && "bg-black/75"
-                )}
-                onClick={() => {
-                  setCurrentTestimonial(testimonial.id);
-                }}
-              ></span>
-            ))}
-          </div>
-        </div>
-      </section>
+    <SectionContainer className="relative my-16 py-16 ">
+      <h3 className="pb-16 text-2xl font-bold">Was unsere Kunden sagen</h3>
+
+      <Carousel
+        swipeable={true}
+        draggable={true}
+        showDots={true}
+        focusOnSelect={true}
+        responsive={responsive}
+        ssr={true} // means to render carousel on server-side.
+        infinite={true}
+        // centerMode={true}
+        autoPlay={true}
+        autoPlaySpeed={6000}
+        keyBoardControl={true}
+        customTransition="all .5"
+        transitionDuration={500}
+        containerClass="carousel-container gap-8 h-64"
+        removeArrowOnDeviceType={["mobile"]}
+        // deviceType={this.props.deviceType}
+        dotListClass="custom-dot-list-style  "
+        itemClass="carousel-item-padding-40-px px-8"
+      >
+        {allTestimonials.map((t) => (
+          <TestimonialCard key={t.id} testimonial={t} />
+        ))}
+      </Carousel>
+      {/* <div className="relative flex w-full snap-x snap-mandatory gap-6 overflow-x-auto overscroll-contain pb-14"></div> */}
     </SectionContainer>
   );
 };

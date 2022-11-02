@@ -13,7 +13,13 @@ import InfoTag from "components/InfoTag";
 import heroImage from "img/pexels-erik-karits-10268580.jpg";
 import teamvolker from "img/team-volker-voltaik.png";
 import LeistungenList from "components/Leistungen/LeistungenList";
-import TestimonialList from "components/testimonial/TestimonialList";
+// import TestimonialList from "components/testimonial/TestimonialList";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
+const Testimonials = dynamic(() => import("components/Testimonials"), {
+  suspense: true,
+});
+
 import { getHome } from "lib/api";
 
 export const getStaticProps: GetStaticProps = async (context) => {
@@ -36,7 +42,9 @@ const IndexPage = ({ data }) => {
         <Facts />
       </div>
       {/* </div> */}
-      <TestimonialList allTestimonials={data.allTestimonials} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Testimonials allTestimonials={data.allTestimonials} />
+      </Suspense>
       <Team />
       {/* <Contact isHome={true} /> */}
       <Contact />
