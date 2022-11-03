@@ -13,7 +13,7 @@ const Team = () => {
         <div className="flex flex-col items-center justify-center pt-8 pb-10 sm:flex-row">
           <Image src={teamvolker} alt="Team Volker Voltaik" className="px-4" />
 
-          <p className="max-w-xs px-8 pt-8">
+          <p className="max-w-xs p-8">
             Unser Team besteht aus 14 Mitarbeitern, von Azubis über
             Bürofachkräfte bis hin zu Elektromeister. Wir harmonieren gut und
             haben immer Spass auf der Arbeit.

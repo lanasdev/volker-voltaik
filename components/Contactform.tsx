@@ -19,29 +19,35 @@ const Contactform = () => {
   return (
     <>
       <form onSubmit={handleSubmit} className="">
-        <fieldset className="flex flex-col gap-4 pt-6">
-          <label htmlFor="name">Name</label>
-          <input
-            type="text"
-            name="name"
-            placeholder="Ihr Name"
-            autoComplete="name"
-            className="form-input  my-2 rounded-md px-4 py-3 text-black invalid:ring-red-500 placeholder:focus:italic focus:valid:ring-green-400"
-          />
-          <ValidationError prefix="Name" field="name" errors={state.errors} />
-        </fieldset>
-        <fieldset className="flex flex-col gap-4 pt-6">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            placeholder="Ihre Email"
-            autoComplete="email"
-            pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
-            className="form-input my-2  rounded-md px-4 py-3 text-black  invalid:ring-red-500 placeholder:focus:italic focus:valid:ring-green-400"
-          />
-          <ValidationError prefix="Email" field="email" errors={state.errors} />
-        </fieldset>
+        <div className="flex flex-col items-stretch justify-between md:flex-row md:gap-8 md:[&>*]:w-full ">
+          <fieldset className="flex flex-col gap-4 pt-6">
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Ihr Name"
+              autoComplete="name"
+              className="form-input my-2 rounded-md px-4 py-3 text-black invalid:ring-red-500 placeholder:focus:italic focus:valid:ring-green-400"
+            />
+            <ValidationError prefix="Name" field="name" errors={state.errors} />
+          </fieldset>
+          <fieldset className="flex flex-col gap-4 pt-6">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Ihre Email"
+              autoComplete="email"
+              pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+              className="form-input my-2  rounded-md px-4 py-3 text-black  invalid:ring-red-500 placeholder:focus:italic focus:valid:ring-green-400"
+            />
+            <ValidationError
+              prefix="Email"
+              field="email"
+              errors={state.errors}
+            />
+          </fieldset>
+        </div>
         <fieldset className="flex flex-col gap-4 pt-6">
           <label htmlFor="type">Projekttyp</label>
           <select
