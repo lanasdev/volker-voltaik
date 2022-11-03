@@ -38,9 +38,9 @@ const Layout = ({ children, title = "Volker Voltaik" }: Props) => (
         href="/favicon-16x16.png"
       />
       <link rel="manifest" href="/site.webmanifest" />
-      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ffb70a" />
-      <meta name="msapplication-TileColor" content="#ffffff" />
-      <meta name="theme-color" content="#ffffff" />
+      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#FAFDFF" />
+      <meta name="msapplication-TileColor" content="#FAFDFF" />
+      <meta name="theme-color" content="#FAFDFF" />
     </Head>
     <Navbar />
     {children}

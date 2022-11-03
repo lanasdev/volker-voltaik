@@ -91,7 +91,7 @@ export const getLeistung = async (slug) => {
             bild {
               __typename
               id
-              responsiveImage(imgixParams: { h: 600 }) {
+              responsiveImage(imgixParams: { h: 600, ar: "3/2" }) {
                 ...responsiveImageFragment
               }
             }
@@ -100,7 +100,7 @@ export const getLeistung = async (slug) => {
         }
         createdAt
         bild {
-          responsiveImage(imgixParams: { w: "800" }) {
+          responsiveImage(imgixParams: { w: 800 }) {
             ...responsiveImageFragment
           }
         }

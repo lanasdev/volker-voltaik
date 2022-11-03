@@ -15,6 +15,8 @@ const LeistungenCard = ({ leistung }: LeistungenCardProps) => {
       <Image
         data={leistung.bild.responsiveImage}
         className="h-28 w-full rounded-t object-cover"
+        layout="responsive"
+        objectFit="cover"
       />
       <div className="p-6 ">
         <h4 className="pb-4 text-xl group-hover:underline">{leistung.titel}</h4>

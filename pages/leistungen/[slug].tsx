@@ -12,6 +12,7 @@ import { getAllLeistungen, getLeistung } from "lib/api";
 import Contact from "components/Contact";
 import InfoTag from "components/InfoTag";
 import ProjectOverview from "pages/projekte";
+import Team from "components/Team";
 
 type RecordImageType = {
   responsiveImage: ResponsiveImageType;
@@ -133,6 +134,7 @@ const LeistungPage = ({ leistung }) => {
           </div>
         </SectionContainer>
       </main>
+      <Team />
       <Contact isHome={false} />
     </Layout>
   );

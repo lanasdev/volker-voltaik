@@ -1,5 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
+
+import Team from "components/Team";
 import Layout from "components/Layout";
 // import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
 // import HeroSection from "components/HeroSection";
@@ -11,14 +15,15 @@ import ContactButton from "components/ContactButton";
 import InfoTag from "components/InfoTag";
 
 import heroImage from "img/pexels-erik-karits-10268580.jpg";
-import teamvolker from "img/team-volker-voltaik.png";
 import LeistungenList from "components/Leistungen/LeistungenList";
 // import TestimonialList from "components/testimonial/TestimonialList";
-import dynamic from "next/dynamic";
-import { Suspense } from "react";
-const Testimonials = dynamic(() => import("components/Testimonials"), {
-  suspense: true,
-});
+
+const Testimonials = dynamic(
+  () => import("components/testimonial/Testimonials"),
+  {
+    suspense: true,
+  }
+);
 
 import { getHome } from "lib/api";
 
@@ -123,26 +128,6 @@ const Facts = () => {
           </div>
         </div>
         <div className="inset-x-0 h-10 w-full rounded-b bg-yellow" />
-      </section>
-    </div>
-  );
-};
-
-const Team = () => {
-  return (
-    <div className="relative z-20 px-4 pb-16 pt-16">
-      <section className="container mx-auto rounded bg-[#EFEFEF]">
-        <div className="flex items-center justify-center py-4">Unser Team</div>
-        <hr />
-        <div className="flex flex-col items-center justify-center pt-8 pb-10 sm:flex-row">
-          <Image src={teamvolker} alt="Team Volker Voltaik" className="px-4" />
-          <p className="max-w-xs px-8 pt-8">
-            Unser Team besteht aus 14 Mitarbeitern, von Azubis über
-            Bürofachkräfte bis hin zu Elektromeister. Wir harmonieren gut und
-            haben immer Spass auf der Arbeit.
-          </p>
-        </div>
-        <div className="inset-x-0 h-10 w-full rounded-b bg-yellow"></div>
       </section>
     </div>
   );
