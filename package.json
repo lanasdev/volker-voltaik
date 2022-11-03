@@ -10,6 +10,7 @@
   "dependencies": {
     "@formspree/react": "^2.4.1",
     "@headlessui/react": "^1.7.3",
+    "@next/font": "^13.0.1",
     "classnames": "^2.3.2",
     "graphql": "^16.6.0",
     "graphql-request": "^5.0.0",

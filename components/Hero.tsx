@@ -41,7 +41,7 @@ const Hero = ({ projects }) => {
           >
             Volker Voltaik
           </Link>
-          <h1 className="max-w-sm text-3xl leading-9">
+          <h1 className="max-w-sm font-display text-3xl leading-9">
             Wir helfen Ihnen Ihre Stromkosten zu minimieren
           </h1>
         </div>

@@ -1,9 +1,22 @@
 import React, { ReactNode } from "react";
 import Link from "next/link";
 import Head from "next/head";
+import cn from "classnames";
 
 import Navbar from "components/Navbar";
 import Footer from "components/Footer";
+
+import localFont from "@next/font/local";
+
+const prompt = localFont({
+  src: "./../public/fonts/Prompt-SemiBold.ttf",
+  weight: "600",
+  style: "normal",
+});
+
+const inter = localFont({
+  src: "./../public/fonts/Inter.var.woff2",
+});
 
 type Props = {
   children?: ReactNode;
@@ -11,7 +24,7 @@ type Props = {
 };
 
 const Layout = ({ children, title = "Volker Voltaik" }: Props) => (
-  <div className="bg-white text-black">
+  <div className={cn("bg-white text-black", inter.className)}>
     <Head>
       <title>{title}</title>
       <meta charSet="utf-8" />

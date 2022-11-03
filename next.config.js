@@ -20,6 +20,11 @@ module.exports = {
     domains: ["images.unsplash.com", "www.datocms-assets.com"],
     formats: ["image/avif", "image/webp"],
   },
+  experimental: {
+    fontLoaders: [
+      { loader: "@next/font/google", options: { subsets: ["latin"] } },
+    ],
+  },
   async headers() {
     return [
       {
