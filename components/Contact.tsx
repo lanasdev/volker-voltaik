@@ -7,15 +7,10 @@ type ContactProps = {
   isHome: boolean;
 };
 
-const Contact = ({ isHome }: ContactProps) => {
+const Contact = () => {
   return (
-    <div
-      className={cn(
-        "bg-black/95 text-white",
-        isHome ? "relative -z-10 -mt-32" : ""
-      )}
-    >
-      <SectionContainer className="z-0 py-16 pt-32">
+    <div className="-mt-32 bg-black text-white" id="kontakt">
+      <SectionContainer className=" -z-10 py-16 pt-32">
         <h3 className="max-w-xs text-3xl font-semibold">
           Bringen Sie Licht in Ihr Haus - nachhaltig
         </h3>

@@ -1,10 +1,11 @@
 import Image from "next/image";
 import teamvolker from "img/team-volker-voltaik.png";
+import SectionContainer from "./SectionContainer";
 
 const Team = () => {
   return (
     <div className="relative z-20 px-4 pb-16 pt-16">
-      <section className="container mx-auto rounded bg-[#EFEFEF] sm:w-1/2  ">
+      <section className="container mx-auto max-w-4xl rounded bg-[#EFEFEF]  ">
         <div className="flex items-center justify-center py-4">Unser Team</div>
 
         <hr />

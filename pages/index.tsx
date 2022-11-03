@@ -11,6 +11,7 @@ import Layout from "components/Layout";
 import { GetStaticProps } from "next";
 
 import SectionContainer from "components/SectionContainer";
+import Contact from "components/Contact";
 import ContactButton from "components/ContactButton";
 import InfoTag from "components/InfoTag";
 
@@ -63,9 +64,17 @@ const Hero = () => {
   return (
     <SectionContainer className="pt-8">
       <div className="flex flex-col items-start justify-center gap-8">
-        <h1 className="max-w-sm text-3xl leading-9">
-          Wir helfen Ihnen Ihre Stromkosten zu minimieren
-        </h1>
+        <div className="">
+          <Link
+            className=" font-medium uppercase text-yellow hover:text-darkYellow hover:underline"
+            href={"/"}
+          >
+            Volker Voltaik
+          </Link>
+          <h1 className="max-w-sm text-3xl leading-9">
+            Wir helfen Ihnen Ihre Stromkosten zu minimieren
+          </h1>
+        </div>
         <ContactButton href="#kontakt" />
       </div>
       <div className="relative w-full">
@@ -92,7 +101,7 @@ const Hero = () => {
 const Facts = () => {
   return (
     <div className="px-4 pb-20">
-      <section className="container mx-auto mt-64 h-full rounded bg-[#EFEFEF]">
+      <section className="container mx-auto mt-64 h-full max-w-4xl rounded bg-[#EFEFEF]">
         <div className="flex h-full items-center justify-center gap-4 py-4">
           <span className="h-4 w-4 animate-pulse rounded-full bg-yellow"></span>
           <p className="">Am Strom der Zeit</p>
@@ -129,43 +138,6 @@ const Facts = () => {
         </div>
         <div className="inset-x-0 h-10 w-full rounded-b bg-yellow" />
       </section>
-    </div>
-  );
-};
-
-import { Envelope, Phone } from "phosphor-react";
-import Contactform from "components/Contactform";
-import cn from "classnames";
-
-const Contact = () => {
-  return (
-    <div className="-mt-32 bg-black text-white" id="kontakt">
-      <SectionContainer className=" -z-10 py-16 pt-32">
-        <h3 className="max-w-xs text-3xl font-semibold">
-          Bringen Sie Licht in Ihr Haus - nachhaltig
-        </h3>
-        <div className="flex flex-col items-start justify-start gap-4 pt-14">
-          <p>
-            Bismarkstrasse 17 <br /> 70111 Stuttgart{" "}
-          </p>
-          <a
-            href="mailto:hallo@volkervoltaik.de"
-            className="flex flex-row items-center justify-center gap-4 "
-          >
-            <Envelope size={32} />
-            <p>hallo@volkervoltaik.de</p>
-          </a>
-          <a
-            href="tel:0987 3820029"
-            className="flex flex-row items-center justify-center gap-4 "
-          >
-            <Phone size={32} />
-            <p>0987 3820029</p>
-          </a>
-        </div>
-        <hr className="my-16 border-yellow" />
-        <Contactform />
-      </SectionContainer>
     </div>
   );
 };

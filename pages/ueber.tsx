@@ -4,10 +4,20 @@ import Image from "next/image";
 import Layout from "components/Layout";
 
 import team from "img/team.jpg";
+import SectionContainer from "components/SectionContainer";
 
 const Ueber = () => {
   return (
-    <Layout>
+    <Layout title="Über uns">
+      <SectionContainer className="pt-16">
+        <Link
+          className="pb-4 font-medium uppercase text-yellow hover:text-darkYellow hover:underline"
+          href={"/"}
+        >
+          Unser Team
+        </Link>
+        <h1 className="pb-16 text-3xl md:text-4xl">Über uns</h1>
+      </SectionContainer>
       <Image
         src={team}
         alt={"Picture of our team"}
