@@ -30,7 +30,7 @@ export const getHome = async () => {
         city
         createdAt
         image {
-          responsiveImage(imgixParams: { w: 600 }) {
+          responsiveImage(imgixParams: { h: 1920, w: 1280 }) {
             ...responsiveImageFragment
           }
         }

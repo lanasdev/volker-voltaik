@@ -114,7 +114,7 @@ const ProjectPage = ({ subscription }) => {
             />
           </article>
         </SectionContainer>
-        <Contact isHome={false} />
+        <Contact />
       </main>
     </Layout>
   );

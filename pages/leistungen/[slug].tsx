@@ -135,7 +135,7 @@ const LeistungPage = ({ leistung }) => {
         </SectionContainer>
       </main>
       <Team />
-      <Contact isHome={false} />
+      <Contact />
     </Layout>
   );
 };

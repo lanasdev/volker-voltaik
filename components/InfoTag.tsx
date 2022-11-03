@@ -14,7 +14,7 @@ const InfoTag = ({
     <span
       className={cn(
         isDark ? "bg-black text-white" : "bg-white text-black",
-        "flex items-center justify-center space-x-2 rounded  py-[2px] px-4 font-semibold"
+        "flex items-center justify-center space-x-2 rounded py-[2px]  px-4 text-center font-semibold"
       )}
     >
       {text}

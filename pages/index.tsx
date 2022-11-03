@@ -3,6 +3,7 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 
+import Hero from "components/Hero";
 import Team from "components/Team";
 import Layout from "components/Layout";
 // import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
@@ -41,9 +42,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
 const IndexPage = ({ data }) => {
   return (
     <Layout title="Volker Voltaik">
-      <Hero />
+      <Hero projects={data.allProjects} />
       {/* <div className="relative px-0 "> */}
-      <div className=" left-0 right-0 -z-10 -mt-48 bg-[#252525] pb-32 md:-mt-72">
+      <div className=" left-0 right-0 -z-10 -mt-48 bg-[#252525] pb-16 md:-mt-72 md:pb-32">
         <LeistungenList leistungen={data.allLeistungs} />
         <Facts />
       </div>
@@ -60,48 +61,10 @@ const IndexPage = ({ data }) => {
 
 export default IndexPage;
 
-const Hero = () => {
-  return (
-    <SectionContainer className="pt-8">
-      <div className="flex flex-col items-start justify-center gap-8">
-        <div className="">
-          <Link
-            className=" font-medium uppercase text-yellow hover:text-darkYellow hover:underline"
-            href={"/"}
-          >
-            Volker Voltaik
-          </Link>
-          <h1 className="max-w-sm text-3xl leading-9">
-            Wir helfen Ihnen Ihre Stromkosten zu minimieren
-          </h1>
-        </div>
-        <ContactButton href="#kontakt" />
-      </div>
-      <div className="relative w-full">
-        <h2 className=" absolute -top-8 right-0 ml-60 max-w-xs border-l-2 border-black pl-4 text-xl font-light text-black decoration-black">
-          Installation von Photovoltaikanlagen, Stromspeicher und Umwelzpumpen
-        </h2>
-        <Image
-          src={heroImage}
-          alt="Volker Voltaik"
-          className=" object-cover pt-16 "
-        />
-      </div>
-      <div className="flex justify-between px-4 pt-8 ">
-        <h4 className="font-semibold text-white">Projekt 1</h4>
-        <div className="flex gap-4">
-          <InfoTag text="Stuttgart" />
-          <InfoTag text="34 kW" />
-        </div>
-      </div>
-    </SectionContainer>
-  );
-};
-
 const Facts = () => {
   return (
-    <div className="px-4 pb-20">
-      <section className="container mx-auto mt-64 h-full max-w-4xl rounded bg-[#EFEFEF]">
+    <div className="px-4 md:pb-16">
+      <section className="container mx-auto mt-32 h-full max-w-4xl rounded bg-[#EFEFEF]">
         <div className="flex h-full items-center justify-center gap-4 py-4">
           <span className="h-4 w-4 animate-pulse rounded-full bg-yellow"></span>
           <p className="">Am Strom der Zeit</p>
