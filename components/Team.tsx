@@ -6,7 +6,9 @@ const Team = () => {
   return (
     <div className="relative z-20 px-4 pb-16 pt-16">
       <section className="container mx-auto max-w-4xl rounded bg-[#EFEFEF]  ">
-        <div className="flex items-center justify-center py-4">Unser Team</div>
+        <div className="flex items-center justify-center py-4 font-semibold">
+          Unser Team
+        </div>
 
         <hr />
 

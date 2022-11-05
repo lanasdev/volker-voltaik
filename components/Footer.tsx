@@ -35,34 +35,34 @@ const FooterData = [
     href: "/projekte",
     children: [
       {
-        title: "Familie Dagobert",
-        href: "/projekte/familie-dagobert",
+        title: "Grundschule Stuttgart",
+        href: "/projekte/grundschule-stuttgart",
       },
       {
-        title: "Familie Müller",
-        href: "/projekte/familie-mueller",
+        title: "Busbahnhof München",
+        href: "/projekte/busbahnhof-munchen",
       },
       {
-        title: "Familie Meier",
-        href: "/projekte/familie-meier",
+        title: "Einfamilienhaus Konstanz",
+        href: "/projekte/einfamilienhaus-konstanz",
       },
     ],
   },
   {
     title: "Über uns",
-    href: "/ueber-uns",
+    href: "/ueber",
     children: [
       {
         title: "Mitarbeiter",
-        href: "/ueber-uns/mitarbeiter",
+        href: "/ueber/mitarbeiter",
       },
       {
         title: "Kontakt",
-        href: "/ueber-uns/kontakt",
+        href: "/ueber/kontakt",
       },
       {
         title: "Karriere",
-        href: "/ueber-uns/karriere",
+        href: "/ueber/karriere",
       },
     ],
   },
@@ -88,7 +88,7 @@ const FooterData = [
 ];
 
 const Footer = () => (
-  <footer className=" bg-black pt-20 text-white md:px-16 md:pt-32">
+  <footer className=" bg-black px-4 pt-20 text-white md:px-16 md:pt-32">
     <>
       <div className="flex min-h-[25vh] flex-col justify-between md:flex-row md:items-center md:justify-around">
         <div className="flex flex-col justify-start">

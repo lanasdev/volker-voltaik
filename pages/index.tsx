@@ -67,7 +67,7 @@ const Facts = () => {
       <section className="container mx-auto mt-32 h-full max-w-4xl rounded bg-[#EFEFEF]">
         <div className="flex h-full items-center justify-center gap-4 py-4">
           <span className="h-4 w-4 animate-pulse rounded-full bg-yellow"></span>
-          <p className="">Am Strom der Zeit</p>
+          <p className="font-semibold">Am Strom der Zeit</p>
         </div>
         <hr />
         <div className="inset-0 flex flex-col items-center justify-center gap-8 pt-8 md:flex-row">

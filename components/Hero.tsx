@@ -92,18 +92,18 @@ const HeroCard = ({ project }) => {
         objectFit="cover"
         className="h-50screen min-h-full w-full object-cover pt-16"
       />
-      <div className="flex w-full justify-between px-4 pt-8 ">
-        <Link
-          href={`/projekte/${project.slug}`}
-          className="hover:underline-offset-2"
-        >
-          <h4 className="font-semibold text-white">{project.title}</h4>
-        </Link>
+      <Link
+        href={`/projekte/${project.slug}`}
+        className="group flex w-full justify-between px-4 pt-8 "
+      >
+        <h4 className="font-semibold text-white group-hover:underline">
+          {project.title}
+        </h4>
         <div className="flex gap-4">
           <InfoTag text={project.city} />
           <InfoTag text={project.power + " kW"} />
         </div>
-      </div>
+      </Link>
     </div>
   );
 };

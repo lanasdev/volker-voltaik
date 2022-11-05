@@ -227,3 +227,48 @@ export const getProject = async (slug: string | string[], preview: boolean) => {
         },
   };
 };
+
+export const getAbout = async () => {
+  const AboutQuery = gql`
+    query About {
+      allTeammembers {
+        id
+        name
+        titel
+        image {
+          responsiveImage(imgixParams: { w: 256, ar: "3:2" }) {
+            ...responsiveImageFragment
+          }
+        }
+      }
+    }
+    ${responsiveImageFragment}
+  `;
+  const data = await request({
+    query: AboutQuery,
+    variables: {},
+    excludeInvalid: true,
+    includeDrafts: true,
+  });
+  return data;
+};
+
+export const getLayout = async () => {
+  const LayoutQuery = gql`
+  allProjects(first:3) {
+    slug
+    title
+  }
+  allLeistungs( first: 3 ){
+    slug
+    titel
+  }
+  `;
+  const data = await request({
+    query: LayoutQuery,
+    variables: {},
+    excludeInvalid: true,
+    includeDrafts: true,
+  });
+  return data;
+};

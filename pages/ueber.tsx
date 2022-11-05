@@ -1,12 +1,29 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import { Image as DatoImg } from "react-datocms";
+
 import Layout from "components/Layout";
 
 import team from "img/team.jpg";
 import SectionContainer from "components/SectionContainer";
 
-const Ueber = () => {
+import { getAbout } from "lib/api";
+import { GetStaticProps } from "next";
+import Contact from "components/Contact";
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const data = await getAbout();
+
+  return {
+    props: {
+      data,
+    },
+    revalidate: 60,
+  };
+};
+
+const Ueber = ({ data }) => {
   return (
     <Layout title="Über uns">
       <SectionContainer className="pt-16">
@@ -21,23 +38,41 @@ const Ueber = () => {
       <Image
         src={team}
         alt={"Picture of our team"}
-        height={1024}
-        width={1024}
-        className="max-h-50screen w-screen flex-1 object-cover"
+        className="h-80 w-screen flex-1 object-cover md:h-96"
       />
-      <section className="container mx-auto min-h-[90vh]">
-        <div className="px-8 pt-8 md:pt-16">
-          <h1 className="pb-2 pt-4 text-2xl font-semibold md:pt-16 md:text-4xl">
-            Über uns
-          </h1>
+      <SectionContainer className="min-h-[90vh]">
+        <div className="pt-8 md:pt-16">
           <p className="max-w-xl">
-            Wir sind ein junges Team aus Ingenieuren, die sich auf die Planung
-            und Installation von Photovoltaikanlagen spezialisiert hat.
+            Wir sind ein junges Team aus Ingenieuren und Elektrikern, die sich
+            auf die Planung und Installation von Photovoltaikanlagen
+            spezialisiert hat.
           </p>
         </div>
-      </section>
+
+        <div className="col-span-1 grid place-items-stretch gap-8 pt-8 sm:grid-cols-2 md:grid-cols-3 md:pt-16">
+          {data.allTeammembers.map((member) => (
+            <Member key={member.id} m={member} />
+          ))}
+        </div>
+      </SectionContainer>
+      <div className="py-24"></div>
+      <Contact />
     </Layout>
   );
 };
 
 export default Ueber;
+
+const Member = ({ m }) => {
+  return (
+    <div className="flex flex-col items-start justify-center">
+      <DatoImg
+        data={m.image.responsiveImage}
+        // className="h-[384px] w-[256px] object-cover "
+        className="object-cover "
+      />
+      <h4 className="pt-4 text-xl font-semibold">{m.name}</h4>
+      <p className="pt-2 text-sm">{m.titel}</p>
+    </div>
+  );
+};

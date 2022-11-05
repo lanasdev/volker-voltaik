@@ -7,6 +7,8 @@ import Layout from "components/Layout";
 
 import { projekteDaten } from "data/data";
 import { getProjects } from "lib/api";
+import Team from "components/Team";
+import Contact from "components/Contact";
 
 const ProjectOverview = ({ projects }) => {
   return (
@@ -48,6 +50,8 @@ const ProjectOverview = ({ projects }) => {
           ))}
         </div>
       </SectionContainer>
+      <Team />
+      <Contact />
     </Layout>
   );
 };
