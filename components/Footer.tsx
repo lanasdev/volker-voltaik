@@ -90,7 +90,7 @@ const FooterData = [
 const Footer = () => (
   <footer className=" bg-black px-4 pt-20 text-white md:px-16 md:pt-32">
     <>
-      <div className="flex min-h-[25vh] flex-col justify-between md:flex-row md:items-center md:justify-around">
+      <div className="flex flex-col justify-between md:flex-row md:items-center md:justify-around">
         <div className="flex flex-col justify-start">
           <Image src={ImgLogo} alt="Logo" className="h-24 w-24" />
 

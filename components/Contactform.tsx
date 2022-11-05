@@ -18,8 +18,8 @@ const Contactform = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="">
-        <div className="flex flex-col items-stretch justify-between md:flex-row md:gap-8 md:[&>*]:w-full ">
+      <form onSubmit={handleSubmit} className="flex-[2]">
+        <div className=" md:gap-8 ">
           <fieldset className="flex flex-col gap-4 pt-6">
             <label htmlFor="name">Name</label>
             <input
