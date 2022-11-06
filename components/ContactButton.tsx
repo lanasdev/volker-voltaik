@@ -10,7 +10,7 @@ export default function ContactButton({ href, text }: Props) {
     <div className="flex justify-center">
       <Link
         href={href || "/#kontakt"}
-        className="rounded bg-yellow py-2 px-4 font-bold hover:bg-darkYellow"
+        className="rounded bg-yellow py-2 px-4 font-bold hover:bg-darkYellow md:px-8"
       >
         {text || "Kontakt"}
       </Link>

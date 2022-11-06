@@ -108,21 +108,19 @@ export default withRouter(Navbar);
 
 const CallToActionNav = () => {
   return (
-    <Link href="#kontakt">
-      <div className=" cursor-pointer">
-        <a
-          className="hidden w-[11em] items-center  justify-center rounded-lg bg-black px-4 py-2 font-medium text-white hover:bg-yellow md:flex"
-          aria-label="Angebot anfragen"
-        >
-          Angebot anfragen
-        </a>
-        <a
-          className="flex items-center justify-center rounded-lg bg-black px-4 py-2 font-medium text-white hover:bg-yellow md:hidden"
-          aria-label="Angebot anfragen"
-        >
-          <Phone size={32} />
-        </a>
-      </div>
+    <Link href="#kontakt" className=" cursor-pointer">
+      <span
+        className="hidden w-[11em] items-center  justify-center rounded-lg bg-black px-4 py-2 font-medium text-white hover:bg-yellow md:flex"
+        aria-label="Angebot anfragen"
+      >
+        Angebot anfragen
+      </span>
+      <span
+        className="flex items-center justify-center rounded-lg bg-black px-4 py-2 font-medium text-white hover:bg-yellow md:hidden"
+        aria-label="Angebot anfragen"
+      >
+        <Phone size={32} />
+      </span>
     </Link>
   );
 };

@@ -162,5 +162,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       leistung: leistung.leistung,
     },
+    revalidate: 60,
   };
 };

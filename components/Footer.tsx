@@ -88,7 +88,7 @@ const FooterData = [
 ];
 
 const Footer = () => (
-  <footer className=" bg-black px-4 pt-20 text-white md:px-16 md:pt-32">
+  <footer className=" bg-black px-4 pt-20 text-white md:px-16">
     <>
       <div className="flex flex-col justify-between md:flex-row md:items-center md:justify-around">
         <div className="flex flex-col justify-start">
@@ -145,8 +145,16 @@ const Footer = () => (
         </div>
       </div>
       <div className="mt-16 w-full border-b-2 border-white"></div>
-      <span className="flex justify-center py-2 text-sm">
-        &copy; {new Date().getFullYear() || 2022} Volker Voltaik
+      <span className="flex justify-center py-2 text-sm ">
+        &copy; {new Date().getFullYear() || 2022} Volker Voltaik GmbH{" - "}
+        <a
+          className="pl-1 hover:underline hover:decoration-yellow "
+          target="_blank"
+          rel="noopener noreferrer"
+          href={"https://lanas.dev"}
+        >
+          {"Design & Entwicklung von Lanas.dev"}
+        </a>
       </span>
     </>
   </footer>

@@ -35,6 +35,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return {
     props: {
       data,
+      revalidate: 60,
     },
   };
 };
@@ -44,7 +45,7 @@ const IndexPage = ({ data }) => {
     <Layout title="Volker Voltaik">
       <Hero projects={data.allProjects} />
       {/* <div className="relative px-0 "> */}
-      <div className=" left-0 right-0 -z-10 -mt-48 bg-[#252525] pb-16 md:-mt-72 md:pb-32">
+      <div className=" left-0 right-0 -z-10 -mt-48 bg-[#252525] pb-16 md:-mt-72">
         <LeistungenList leistungen={data.allLeistungs} />
         <Facts />
       </div>
@@ -63,7 +64,7 @@ export default IndexPage;
 
 const Facts = () => {
   return (
-    <div className="px-4 md:pb-16">
+    <div className="px-4">
       <section className="container mx-auto mt-32 h-full max-w-4xl rounded bg-[#EFEFEF]">
         <div className="flex h-full items-center justify-center gap-4 py-4">
           <span className="h-4 w-4 animate-pulse rounded-full bg-yellow"></span>

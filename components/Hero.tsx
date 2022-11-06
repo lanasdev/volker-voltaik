@@ -36,19 +36,19 @@ const Hero = ({ projects }) => {
       <div className="flex flex-col items-start justify-center gap-8 pb-32">
         <div className="">
           <Link
-            className=" font-medium uppercase text-yellow hover:text-darkYellow hover:underline"
+            className=" font-medium uppercase text-yellow hover:text-darkYellow hover:underline md:text-xl"
             href={"/"}
           >
             Volker Voltaik
           </Link>
-          <h1 className="max-w-sm font-display text-3xl leading-9">
+          <h1 className="max-w-sm font-display text-3xl leading-9 md:text-4xl md:leading-10 xl:text-5xl">
             Wir helfen Ihnen Ihre Stromkosten zu minimieren
           </h1>
         </div>
         <ContactButton href="#kontakt" />
       </div>
       <div className="relative w-full">
-        <h2 className="absolute -top-20 right-0 z-30 ml-60 max-w-xs border-l-2 border-black pl-4 text-xl font-light text-black decoration-black">
+        <h2 className="absolute -top-20 right-0 z-30 ml-60 max-w-xs border-l-2 border-black pl-4 text-xl font-light text-black decoration-black md:text-2xl ">
           Installation von Photovoltaikanlagen, Stromspeicher und Umwelzpumpen
         </h2>
         <Carousel

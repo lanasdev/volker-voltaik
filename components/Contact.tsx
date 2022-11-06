@@ -21,18 +21,18 @@ const Contact = () => {
                 Bismarkstrasse 17 <br /> 70111 Stuttgart{" "}
               </p>
               <a
-                href="mailto:hallo@volkervoltaik.de"
-                className="flex flex-row items-center justify-center gap-4 "
+                href="mailto:matthias@lanas.dev"
+                className="flex flex-row items-center justify-center gap-4 ease-in-out hover:underline hover:underline-offset-2"
               >
                 <Envelope size={32} />
-                <p>hallo@volkervoltaik.de</p>
+                <p>matthias@lanas.dev</p>
               </a>
               <a
-                href="tel:0987 3820029"
-                className="flex flex-row items-center justify-center gap-4 "
+                href="tel:+49 0711 123456"
+                className="flex flex-row items-center justify-center gap-4 ease-in-out hover:underline hover:underline-offset-2"
               >
                 <Phone size={32} />
-                <p>0987 3820029</p>
+                <p>+49 0711 123456</p>
               </a>
             </div>
           </div>

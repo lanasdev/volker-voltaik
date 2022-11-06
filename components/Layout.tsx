@@ -7,6 +7,7 @@ import Navbar from "components/Navbar";
 import Footer from "components/Footer";
 
 import localFont from "@next/font/local";
+import Topbar from "./Topbar";
 
 const prompt = localFont({
   src: "./../public/fonts/Prompt-SemiBold.ttf",
@@ -55,6 +56,7 @@ const Layout = ({ children, title = "Volker Voltaik" }: Props) => (
       <meta name="msapplication-TileColor" content="#FAFDFF" />
       <meta name="theme-color" content="#FAFDFF" />
     </Head>
+    <Topbar />
     <Navbar />
     {children}
     <Footer />
