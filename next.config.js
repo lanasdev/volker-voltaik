@@ -1,3 +1,5 @@
+/** @type {import('next').NextConfig} */
+
 const securityHeaders = [
   {
     key: "X-DNS-Prefetch-Control",
@@ -15,8 +17,13 @@ const securityHeaders = [
 
 module.exports = {
   images: {
-    domains: ["images.unsplash.com"],
+    domains: ["images.unsplash.com", "www.datocms-assets.com"],
     formats: ["image/avif", "image/webp"],
+  },
+  experimental: {
+    fontLoaders: [
+      { loader: "@next/font/google", options: { subsets: ["latin"] } },
+    ],
   },
   async headers() {
     return [

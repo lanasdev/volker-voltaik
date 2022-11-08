@@ -1,103 +1,145 @@
+/* eslint-disable jsx-a11y/alt-text */
+import Image from "next/image";
+import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
-import Image from "next/future/image";
-import { GetStaticProps, GetStaticPaths } from "next";
+import {
+  ResponsiveImageType,
+  StructuredText,
+  useQuerySubscription,
+} from "react-datocms";
+import { Image as DatoImg } from "react-datocms";
 
 import Layout from "components/Layout";
 
-import { projekteDaten } from "data/data";
+import SectionContainer from "components/SectionContainer";
+import { getAllProjects, getProject } from "lib/api";
+import Contact from "components/Contact";
 
-const Project = ({ project }) => {
-  // for (const property in project.details) {
-  //   // if (Object.prototype.hasOwnProperty.call(project, property)) {
-  //   //     const element = project[property];
+type RecordImageType = {
+  responsiveImage: ResponsiveImageType;
+};
+type RecordTextProps = {
+  record: any;
+};
 
-  //   // }
-  //   console.log(property);
-  // }
+const ProjectPage = ({ subscription }) => {
+  const { data, error, status } = useQuerySubscription(subscription);
+  const statusMessage = {
+    connecting: "Connecting to DatoCMS...",
+    connected: "Connected to DatoCMS, receiving live updates!",
+    closed: "Connection closed",
+  };
+
+  const project = data.project;
   return (
-    <Layout>
-      <section className="flex min-h-[90vh] flex-col">
-        <Image
-          src={project.imageBig}
-          alt={project.title}
-          height={600}
-          width={1920}
-          className="max-h-50screen w-screen flex-1 object-cover"
-        />
-        <main className="container mx-auto flex-1 px-8">
-          <h1 className="pb-4 pt-8 text-2xl font-semibold md:pt-16 md:text-4xl">
-            {"Projekt: " + project.name}
-          </h1>
-          <p className="pb-2 text-lg ">{project.description}</p>
-          <h2 className="pt-8 font-semibold">Daten und Fakten</h2>
-          <div className="grid grid-cols-2 gap-4 pt-2">
-            <span className="">{"Fläche: " + project.details.size + "m²"}</span>
-            <span className="">{"kWp: " + project.details.kwp}</span>
-            <span className="">{"Ort: " + project.details.location}</span>
-            <span className="">{"Baujahr: " + project.details.year}</span>
-          </div>
+    <Layout title={project.title}>
+      {/* DatoCMS Live updates */}
+      {status != "closed" && (
+        <div className="pb-8">
+          <p>Connection status: {statusMessage[status]}</p>
+          {error && (
+            <div>
+              <h1>Error: {error.code}</h1>
+              <div>{error.message}</div>
+              {error.response && (
+                <pre>{JSON.stringify(error.response, null, 2)}</pre>
+              )}
+            </div>
+          )}
+        </div>
+      )}
+      <SectionContainer className="pt-16">
+        <Link
+          className="pb-4 font-medium uppercase text-yellow hover:text-darkYellow hover:underline"
+          href={"/#projekt"}
+        >
+          Projekt
+        </Link>
+        <h1 className="pb-16 text-3xl md:text-4xl">
+          {status == "connected" ? project.title + " (Entwurf)" : project.title}{" "}
+        </h1>
+      </SectionContainer>
+      <Image
+        src={project.image.responsiveImage.src}
+        sizes={project.image.responsiveImage.srcSet}
+        width={project.image.responsiveImage.width}
+        height={project.image.responsiveImage.height}
+        alt={
+          project.image.alt ||
+          project.image.responsiveImage.alt ||
+          project.titel
+        }
+        placeholder="blur"
+        blurDataURL={project.image.responsiveImage.base64}
+        priority
+        className="h-80 w-screen object-cover object-center md:h-96"
+      />
+      <main className="bg-[#252525]">
+        <SectionContainer className="pt-8 pb-16 text-white ">
+          <p className="float-right line-clamp-1">
+            {project.image.alt || project.image.responsiveImage.alt}
+          </p>
 
-          <p className="prose pt-8">{project.content}</p>
-          <h2 className="pt-12 font-semibold md:pt-24">Weitere Bilder</h2>
-          <div className="grid grid-cols-2 pt-4 md:grid-cols-4 md:pt-8 [&>*]:h-64 [&>*]:w-64">
-            <Image
-              src={project.imageBig}
-              alt={project.title}
-              height={600}
-              width={1920}
-              className=" object-cover"
+          <article className="prose prose-invert pt-16  prose-a:decoration-yellow prose-a:underline-offset-2 ">
+            <StructuredText
+              data={project.text}
+              renderInlineRecord={({ record }) => {
+                switch (record.__typename) {
+                  case "link":
+                    return (
+                      <Link
+                        href={record.url}
+                        className="inline-block underline dark:decoration-yellow dark:hover:decoration-darkYellow"
+                      >
+                        {(record as any).children.value}
+                      </Link>
+                    );
+                  default:
+                    return null;
+                }
+              }}
+              renderBlock={({ record }) => {
+                switch (record.__typename) {
+                  case "ImageRecord":
+                    return (
+                      <DatoImg
+                        data={(record.image as RecordImageType).responsiveImage}
+                        className="my-8"
+                      />
+                    );
+                  default:
+                    return null;
+                }
+              }}
             />
-            <Image
-              src={project.imageBig}
-              alt={project.title}
-              height={600}
-              width={1920}
-              className=" object-cover"
-            />
-            <Image
-              src={project.imageBig}
-              alt={project.title}
-              height={600}
-              width={1920}
-              className=" object-cover"
-            />
-            <Image
-              src={project.imageBig}
-              alt={project.title}
-              height={600}
-              width={1920}
-              className=" object-cover"
-            />
-          </div>
-
-          {/* <pre>{JSON.stringify(project, null, 2)}</pre> */}
-        </main>
-      </section>
+          </article>
+        </SectionContainer>
+        <Contact />
+      </main>
     </Layout>
   );
 };
 
-export default Project;
-
-export const getStaticProps: GetStaticProps = async (context) => {
-  const { slug } = context.params;
-
-  const project = projekteDaten.find((project) => project.slug === slug);
-
-  return {
-    props: {
-      project,
-    },
-  };
-};
+export default ProjectPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = projekteDaten.map((project) => ({
+  const data = await getAllProjects();
+
+  const paths = data.allProjects.map((project: { slug: String }) => ({
     params: { slug: project.slug },
   }));
 
   return {
     paths,
     fallback: false,
+  };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params, preview }) => {
+  const project = await getProject(params.slug, preview);
+
+  return {
+    props: project,
+    revalidate: 60,
   };
 };

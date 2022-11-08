@@ -1,11 +1,15 @@
 import cn from "classnames";
 
-type Props = {
-  children: React.ReactNode;
+export default function SectionContainer({
+  children,
+  className,
+}: {
+  children: any;
   className?: string;
-};
-
-const SectionContainer = ({ children, className }: Props) => {
-  return <div className={cn(`container mx-auto px-8 md:px-0`, className)} >{children}</div>;
-};
-export default SectionContainer;
+}) {
+  return (
+    <section className={cn("container mx-auto max-w-4xl px-4 ", className)}>
+      {children}
+    </section>
+  );
+}

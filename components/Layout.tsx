@@ -1,10 +1,23 @@
 import React, { ReactNode } from "react";
 import Link from "next/link";
 import Head from "next/head";
+import cn from "classnames";
 
 import Navbar from "components/Navbar";
-import Contact from "components/Contact";
 import Footer from "components/Footer";
+
+import localFont from "@next/font/local";
+import Topbar from "./Topbar";
+
+const prompt = localFont({
+  src: "./../public/fonts/Prompt-SemiBold.ttf",
+  weight: "600",
+  style: "normal",
+});
+
+const inter = localFont({
+  src: "./../public/fonts/Inter.var.woff2",
+});
 
 type Props = {
   children?: ReactNode;
@@ -12,7 +25,7 @@ type Props = {
 };
 
 const Layout = ({ children, title = "Volker Voltaik" }: Props) => (
-  <div>
+  <div className={cn("bg-white text-black", inter.className)}>
     <Head>
       <title>{title}</title>
       <meta charSet="utf-8" />
@@ -39,13 +52,13 @@ const Layout = ({ children, title = "Volker Voltaik" }: Props) => (
         href="/favicon-16x16.png"
       />
       <link rel="manifest" href="/site.webmanifest" />
-      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ffb70a" />
-      <meta name="msapplication-TileColor" content="#ffffff" />
-      <meta name="theme-color" content="#ffffff" />
+      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#FAFDFF" />
+      <meta name="msapplication-TileColor" content="#FAFDFF" />
+      <meta name="theme-color" content="#FAFDFF" />
     </Head>
+    <Topbar />
     <Navbar />
     {children}
-    <Contact />
     <Footer />
   </div>
 );

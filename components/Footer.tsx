@@ -1,8 +1,10 @@
 import Link from "next/link";
+import Image from "next/image";
 
-import Logo from "components/Logo";
+import ImgLogo from "img/Logo.png";
+
 import { InstagramLogo, TwitterLogo, YoutubeLogo } from "phosphor-react";
-import SectionContainer from "./SectionContainer";
+import SectionContainer from "components/SectionContainer";
 
 const FooterData = [
   // {
@@ -11,24 +13,20 @@ const FooterData = [
   //     children: []
   // },
   {
-    title: "Fachgebiete",
-    href: "/fachgebiete",
+    title: "Leistungen",
+    href: "/leistungen",
     children: [
       {
         title: "Photovoltaik",
-        href: "/fachgebiete/photovoltaik",
+        href: "/leistungen/photovoltaik",
       },
       {
-        title: "E-Auto",
-        href: "/fachgebiete/e-auto",
-      },
-      {
-        title: "Energieeffizienz",
-        href: "/fachgebiete/energieeffizienz",
+        title: "Wallboxen",
+        href: "/leistungen/wallbox",
       },
       {
         title: "Batteriespeicher",
-        href: "/fachgebiete/batteriespeicher",
+        href: "/leistungen/stromspeicher",
       },
     ],
   },
@@ -37,34 +35,34 @@ const FooterData = [
     href: "/projekte",
     children: [
       {
-        title: "Familie Dagobert",
-        href: "/projekte/familie-dagobert",
+        title: "Grundschule Stuttgart",
+        href: "/projekte/grundschule-stuttgart",
       },
       {
-        title: "Familie Müller",
-        href: "/projekte/familie-mueller",
+        title: "Busbahnhof München",
+        href: "/projekte/busbahnhof-munchen",
       },
       {
-        title: "Familie Meier",
-        href: "/projekte/familie-meier",
+        title: "Einfamilienhaus Konstanz",
+        href: "/projekte/einfamilienhaus-konstanz",
       },
     ],
   },
   {
     title: "Über uns",
-    href: "/ueber-uns",
+    href: "/ueber",
     children: [
       {
         title: "Mitarbeiter",
-        href: "/ueber-uns/mitarbeiter",
+        href: "/ueber/mitarbeiter",
       },
       {
         title: "Kontakt",
-        href: "/ueber-uns/kontakt",
+        href: "/ueber/kontakt",
       },
       {
         title: "Karriere",
-        href: "/ueber-uns/karriere",
+        href: "/ueber/karriere",
       },
     ],
   },
@@ -90,39 +88,33 @@ const FooterData = [
 ];
 
 const Footer = () => (
-  <section className=" bg-black/95 pt-20 pb-16 text-white md:px-16 md:pt-32">
-    <SectionContainer>
-      <div className="flex min-h-[25vh] flex-col items-center justify-between md:flex-row md:justify-around">
-        <div className="flex flex-col justify-center">
-          <Logo />
-          <p className="max-w-xs pt-6 text-sm">
-            „Die Gegenwart gehört ihnen, die Zukunft, für die ich gearbeitet
-            habe, gehört mir.“ <br />- Nikola Tesla
-          </p>
+  <footer className=" bg-black px-4 pt-20 text-white md:px-16">
+    <>
+      <div className="flex flex-col justify-between md:flex-row md:items-center md:justify-around">
+        <div className="flex flex-col justify-start">
+          <Image src={ImgLogo} alt="Logo" className="h-24 w-24" />
+
           <div className="flex space-x-8 pt-4" id="socials">
-            <Link href="https://instagram.com/lanasdev">
-              <a
-                className=" transition-all hover:rotate-12"
-                aria-label="Volker Voltaik Instagram Account"
-              >
-                <InstagramLogo size={32} />
-              </a>
+            <Link
+              href="https://instagram.com/lanasdev"
+              className=" transition-all hover:rotate-12"
+              aria-label="Volker Voltaik Instagram Account"
+            >
+              <InstagramLogo size={32} />
             </Link>
-            <Link href="https://twitter.com/lanasdev">
-              <a
-                className=" transition-all hover:rotate-12"
-                aria-label="Volker Voltaik Twitter Account"
-              >
-                <TwitterLogo size={32} className="hover:fill-blue-400" />
-              </a>
+            <Link
+              href="https://twitter.com/lanasdev"
+              className=" transition-all hover:rotate-12"
+              aria-label="Volker Voltaik Twitter Account"
+            >
+              <TwitterLogo size={32} className="hover:fill-blue-400" />
             </Link>
-            <Link href="https://youtube.com/">
-              <a
-                className=" transition-all hover:rotate-12"
-                aria-label="Volker Voltaik Youtube Kanal"
-              >
-                <YoutubeLogo size={32} />
-              </a>
+            <Link
+              href="https://youtube.com/"
+              className=" transition-all hover:rotate-12"
+              aria-label="Volker Voltaik Youtube Kanal"
+            >
+              <YoutubeLogo size={32} />
             </Link>
           </div>
         </div>
@@ -133,16 +125,19 @@ const Footer = () => (
               className="flex flex-col justify-start space-y-2 px-2 pt-10"
               key={index}
             >
-              <Link href={item.href}>
-                <a className="pb-4 font-bold decoration-white hover:underline">
-                  {item.title}
-                </a>
+              <Link
+                href={item.href}
+                className="pb-4 font-bold decoration-white hover:underline"
+              >
+                {item.title}
               </Link>
               {item.children.map((child, index) => (
-                <Link href={child.href} key={index}>
-                  <a className="text-sm decoration-white hover:underline">
-                    {child.title}
-                  </a>
+                <Link
+                  href={child.href}
+                  key={index}
+                  className="text-sm decoration-white hover:underline"
+                >
+                  {child.title}
                 </Link>
               ))}
             </div>
@@ -150,11 +145,19 @@ const Footer = () => (
         </div>
       </div>
       <div className="mt-16 w-full border-b-2 border-white"></div>
-      <span className=" float-right pt-2">
-        &copy; {new Date().getFullYear() || 2022} Volker Voltaik
+      <span className="flex justify-center py-2 text-sm ">
+        &copy; {new Date().getFullYear() || 2022} Volker Voltaik GmbH{" - "}
+        <a
+          className="pl-1 hover:underline hover:decoration-yellow "
+          target="_blank"
+          rel="noopener noreferrer"
+          href={"https://lanas.dev"}
+        >
+          {"Design & Entwicklung von Lanas.dev"}
+        </a>
       </span>
-    </SectionContainer>
-  </section>
+    </>
+  </footer>
 );
 
 export default Footer;

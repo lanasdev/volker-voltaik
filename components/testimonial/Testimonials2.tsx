@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import cn from "classnames";
-import SectionContainer from "./SectionContainer";
+import SectionContainer from "../SectionContainer";
 
 const Testimonials = () => {
   const [testimonials, setTestimonials] = useState([
@@ -54,12 +54,14 @@ const Testimonials = () => {
   return (
     <SectionContainer>
       <section className="h-full w-full pb-16">
-        <h3 className="pb-32 text-xl md:text-2xl font-semibold">Was unsere Kunden sagen</h3>
+        <h3 className="pb-32 text-xl font-semibold md:text-2xl">
+          Was unsere Kunden sagen
+        </h3>
         <div className="mx-auto flex h-full flex-col items-center justify-between">
           {/* <span className="absolute top-5 font-display text-4xl">{`"`}</span> */}
           <div className="flex h-full w-1/2 flex-row items-center justify-around">
             <button
-              className="rounded px-4 text-2xl font-bold  text-black/50 hover:bg-black/25 py-16 hover:text-black md:text-4xl"
+              className="rounded px-4 py-16 text-2xl  font-bold text-black/50 hover:bg-black/25 hover:text-black md:text-4xl"
               onClick={() => {
                 rotateTestimonial("prev");
               }}
@@ -74,12 +76,14 @@ const Testimonials = () => {
                   key={testimonial.id}
                   className="flex min-h-[20vh] flex-col items-center justify-center"
                 >
-                  <p className="text-md w-[50vw] md:w-full sm:max-w-3xl">{testimonial.text}</p>
+                  <p className="text-md w-[50vw] sm:max-w-3xl md:w-full">
+                    {testimonial.text}
+                  </p>
                   <p className="pt-4">{"- " + testimonial.name}</p>
                 </div>
               ))}
             <button
-              className="rounded px-4 text-2xl font-bold text-black/50 hover:bg-black/25 py-16 hover:text-black md:text-4xl"
+              className="rounded px-4 py-16 text-2xl font-bold text-black/50 hover:bg-black/25 hover:text-black md:text-4xl"
               onClick={() => {
                 rotateTestimonial("next");
               }}
