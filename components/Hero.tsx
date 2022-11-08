@@ -94,7 +94,7 @@ const HeroCard = ({ project }) => {
       />
       <Link
         href={`/projekte/${project.slug}`}
-        className="group flex w-full justify-between px-4 pt-8 "
+        className="group flex w-full justify-between pt-8 md:px-4 "
       >
         <h4 className="font-semibold text-white group-hover:underline">
           {project.title}
