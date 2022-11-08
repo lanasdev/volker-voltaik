@@ -24,11 +24,7 @@ const navigation = [
 
 const Navbar = ({ router }) => {
   let path = router.pathname;
-  console.log(path);
-
-  // get first path segment
   path = "/" + path.split("/")[1];
-  console.log(path);
 
   return (
     <Disclosure as="nav" className="text-black">

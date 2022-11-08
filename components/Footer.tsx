@@ -90,9 +90,11 @@ const FooterData = [
 const Footer = () => (
   <footer className=" bg-black px-4 pt-20 text-white md:px-16">
     <>
-      <div className="flex flex-col justify-between md:flex-row md:items-center md:justify-around">
+      <div className="flex flex-col justify-between md:flex-row md:items-center md:justify-between">
         <div className="flex flex-col justify-start">
-          <Image src={ImgLogo} alt="Logo" className="h-24 w-24" />
+          <Link href={"/"}>
+            <Image src={ImgLogo} alt="Logo" className="h-24 w-24" />
+          </Link>
 
           <div className="flex space-x-8 pt-4" id="socials">
             <Link
@@ -145,10 +147,12 @@ const Footer = () => (
         </div>
       </div>
       <div className="mt-16 w-full border-b-2 border-white"></div>
-      <span className="flex justify-center py-2 text-sm ">
-        &copy; {new Date().getFullYear() || 2022} Volker Voltaik GmbH{" - "}
+      <span className="flex flex-col items-center justify-center gap-2 py-2 text-sm md:flex-row md:gap-0 ">
+        <span>
+          &copy; {new Date().getFullYear() || 2022} Volker Voltaik GmbH{" - "}
+        </span>
         <a
-          className="pl-1 hover:underline hover:decoration-yellow "
+          className="hover:underline hover:decoration-yellow md:pl-1 "
           target="_blank"
           rel="noopener noreferrer"
           href={"https://lanas.dev"}
