@@ -56,7 +56,7 @@ const Layout = ({ children, title = "Volker Voltaik" }: Props) => (
       <meta name="msapplication-TileColor" content="#FAFDFF" />
       <meta name="theme-color" content="#FAFDFF" />
     </Head>
-    <Topbar />
+    {/* <Topbar /> */}
     <Navbar />
     {children}
     <Footer />
