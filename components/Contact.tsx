@@ -10,7 +10,7 @@ type ContactProps = {
 const Contact = () => {
   return (
     <div className="-mt-32 bg-black text-white" id="kontakt">
-      <SectionContainer className="-z-10 pb-32 pt-32 md:gap-16 md:pb-16">
+      <SectionContainer className="-z-10 pb-16 pt-32 md:gap-16 md:pb-16">
         <div className="flex flex-col items-stretch justify-between md:flex-row ">
           <div className="flex-1 md:pr-16">
             <h3 className="max-w-xs text-3xl font-semibold">

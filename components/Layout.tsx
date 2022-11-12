@@ -8,6 +8,7 @@ import Footer from "components/Footer";
 
 import localFont from "@next/font/local";
 import Topbar from "./Topbar";
+import FooterImage from "./FooterImage";
 
 const prompt = localFont({
   src: "./../public/fonts/Prompt-SemiBold.ttf",
@@ -59,6 +60,7 @@ const Layout = ({ children, title = "Volker Voltaik" }: Props) => (
     {/* <Topbar /> */}
     <Navbar />
     {children}
+    <FooterImage />
     <Footer />
   </div>
 );
