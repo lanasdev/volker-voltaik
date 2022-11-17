@@ -56,6 +56,30 @@ const Layout = ({ children, title = "Volker Voltaik" }: Props) => (
       <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#FAFDFF" />
       <meta name="msapplication-TileColor" content="#FAFDFF" />
       <meta name="theme-color" content="#FAFDFF" />
+      <meta property="og:url" content="https://volker.lanas.dev/" />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="Volker Voltaik" />
+      <meta
+        property="og:description"
+        content="Installation von Photovoltaikanlagen, Stromspeicher und Umwelzpumpen"
+      />
+      <meta
+        property="og:image"
+        content="https://volker.lanas.dev/img/volker-screen.png"
+      />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta property="twitter:domain" content="volker.lanas.dev" />
+      <meta property="twitter:url" content="https://volker.lanas.dev/" />
+      <meta name="twitter:title" content="Volker Voltaik" />
+      <meta
+        name="twitter:description"
+        content="Installation von Photovoltaikanlagen, Stromspeicher und Umwelzpumpen"
+      />
+      <meta
+        name="twitter:image"
+        content="https://volker.lanas.dev/img/volker-screen.png"
+      />
     </Head>
     {/* <Topbar /> */}
     <Navbar />
