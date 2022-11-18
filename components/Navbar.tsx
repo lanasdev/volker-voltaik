@@ -27,10 +27,13 @@ const Navbar = ({ router }) => {
   path = "/" + path.split("/")[1];
 
   return (
-    <Disclosure as="nav" className="text-black">
+    <Disclosure
+      as="nav"
+      className="group sticky top-0 z-[9999] bg-white/90 text-black backdrop-blur-lg transition-all duration-300 ease-in-out"
+    >
       {({ open }) => (
         <>
-          <div className="mx-auto py-2 px-4 sm:px-6 lg:px-16">
+          <div className="mx-auto py-2 px-4 group-hover:bg-white sm:px-6 lg:px-16">
             <div className="relative flex h-16 items-center justify-between">
               <div className="flex flex-1 items-center justify-start sm:items-stretch sm:justify-start">
                 <Link href="/" className="flex flex-shrink-0 items-center">
