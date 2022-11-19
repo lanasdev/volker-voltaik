@@ -276,7 +276,7 @@ export const getLayout = async () => {
 };
 
 // Open Jobs
-export const getKarriere = async (preview: boolean) => {
+export const getKarriere = async (preview: boolean = false) => {
   const KarriereQuery = gql`
     query getKarriere {
       karriere {
@@ -286,7 +286,7 @@ export const getKarriere = async (preview: boolean) => {
           value
         }
         image {
-          responsiveImage(imgixParams: { auto: format }) {
+          responsiveImage(imgixParams: { auto: format, h: 800 }) {
             ...responsiveImageFragment
           }
         }
