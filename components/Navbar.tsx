@@ -19,6 +19,7 @@ const navigation = [
     current: false,
   },
   { name: "Projekte", href: "/projekte", href2: "/projekte", current: false },
+  { name: "Karriere", href: "/karriere", href2: "/karriere", current: false },
   { name: "Über uns", href: "/ueber", href2: "/ueber", current: false },
 ];
 

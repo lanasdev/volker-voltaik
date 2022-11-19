@@ -5,7 +5,6 @@ import SectionContainer from "components/SectionContainer";
 
 import Layout from "components/Layout";
 
-import { projekteDaten } from "data/data";
 import { getProjects } from "lib/api";
 import Team from "components/Team";
 import Contact from "components/Contact";
@@ -66,6 +65,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return {
     props: {
       projects,
+      revalidate: 60,
     },
   };
 };

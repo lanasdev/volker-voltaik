@@ -14,7 +14,7 @@ export const getHome = async () => {
         titel
         beschreibung
         bild {
-          responsiveImage(imgixParams: { h: 400 }) {
+          responsiveImage(imgixParams: { auto: format, h: 400 }) {
             ...responsiveImageFragment
           }
         }
@@ -30,7 +30,7 @@ export const getHome = async () => {
         city
         createdAt
         image {
-          responsiveImage(imgixParams: { h: 1920, w: 1280 }) {
+          responsiveImage(imgixParams: { auto: format, h: 1920, w: 1280 }) {
             ...responsiveImageFragment
           }
         }
@@ -91,7 +91,9 @@ export const getLeistung = async (slug) => {
             bild {
               __typename
               id
-              responsiveImage(imgixParams: { h: 600, ar: "3/2" }) {
+              responsiveImage(
+                imgixParams: { auto: format, h: 600, ar: "3/2" }
+              ) {
                 ...responsiveImageFragment
               }
             }
@@ -100,7 +102,7 @@ export const getLeistung = async (slug) => {
         }
         createdAt
         bild {
-          responsiveImage(imgixParams: { w: 800 }) {
+          responsiveImage(imgixParams: { auto: format, w: 800 }) {
             ...responsiveImageFragment
           }
         }
@@ -236,7 +238,7 @@ export const getAbout = async () => {
         name
         titel
         image {
-          responsiveImage(imgixParams: { w: 256, ar: "3:2" }) {
+          responsiveImage(imgixParams: { auto: format, w: 256, ar: "3:2" }) {
             ...responsiveImageFragment
           }
         }
@@ -272,3 +274,70 @@ export const getLayout = async () => {
   });
   return data;
 };
+
+// Open Jobs
+export const getKarriere = async (preview: boolean) => {
+  const KarriereQuery = gql`
+    query getKarriere {
+      karriere {
+        title
+        content {
+          links
+          value
+        }
+        image {
+          responsiveImage(imgixParams: { auto: format }) {
+            ...responsiveImageFragment
+          }
+        }
+      }
+      allJobs {
+        title
+        description
+        slug
+        content {
+          links
+          value
+        }
+        location
+        updatedAt
+      }
+    }
+    ${responsiveImageFragment}
+  `;
+  const graphqlRequest = {
+    query: KarriereQuery,
+    variables: {},
+    includeDrafts: preview,
+    excludeInvalid: true,
+  };
+  return {
+    subscription: preview
+      ? {
+          ...graphqlRequest,
+          initialData: await request(graphqlRequest),
+          token: process.env.NEXT_DATOCMS_API_TOKEN,
+        }
+      : {
+          enabled: false,
+          initialData: await request(graphqlRequest),
+        },
+  };
+};
+
+// export const getAllJobs = async (preview: boolean) => {
+//   const JobsQuery = gql`
+//     query Jobs {
+//       allJobs {
+//         slug
+//       }
+//     }
+//   `;
+//   const data = await request({
+//     query: JobsQuery,
+//     variables: {},
+//     excludeInvalid: true,
+//     includeDrafts: true,
+//   });
+//   return data;
+// };
