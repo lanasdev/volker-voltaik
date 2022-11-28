@@ -80,7 +80,7 @@ const ProjectPage = ({ subscription }) => {
             {project.image.alt || project.image.responsiveImage.alt}
           </p>
 
-          <article className="prose prose-invert pt-16  prose-a:decoration-yellow prose-a:underline-offset-2 ">
+          <article className="prose prose-invert my-8 pt-16 prose-a:decoration-yellow prose-a:underline-offset-2 ">
             <StructuredText
               data={project.text}
               renderInlineRecord={({ record }) => {
