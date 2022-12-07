@@ -41,7 +41,7 @@ const Hero = ({ projects }) => {
           >
             Volker Voltaik
           </Link>
-          <h1 className="max-w-sm font-display text-3xl leading-9 md:text-4xl md:leading-10 xl:text-5xl">
+          <h1 className="font-display max-w-sm text-3xl leading-9 md:text-4xl md:leading-10 xl:text-5xl">
             Wir helfen Ihnen Ihre Stromkosten zu minimieren
           </h1>
         </div>
@@ -85,17 +85,14 @@ export default Hero;
 
 const HeroCard = ({ project }) => {
   return (
-    <div className="relative w-full">
+    <Link href={`/projekte/${project.slug}`} className="relative w-full">
       <DatoImg
         data={project.image.responsiveImage}
         layout="responsive"
         objectFit="cover"
         className="h-50screen min-h-full w-full object-cover pt-16"
       />
-      <Link
-        href={`/projekte/${project.slug}`}
-        className="group flex w-full justify-between pt-8 md:px-4 "
-      >
+      <div className="group flex w-full justify-between pt-8 md:px-4 ">
         <h4 className="font-semibold text-white group-hover:underline">
           {project.title}
         </h4>
@@ -103,7 +100,57 @@ const HeroCard = ({ project }) => {
           <InfoTag text={project.city} />
           <InfoTag text={project.power + " kW"} />
         </div>
-      </Link>
-    </div>
+      </div>
+    </Link>
+  );
+};
+
+export const HeroSkeleton = ({ projects }) => {
+  const project = projects[0];
+  return (
+    <SectionContainer className="pt-8">
+      <div className="flex flex-col items-start justify-center gap-8 pb-32">
+        <div className="">
+          <Link
+            className=" font-medium uppercase text-yellow hover:text-darkYellow hover:underline md:text-xl"
+            href={"/"}
+          >
+            Volker Voltaik
+          </Link>
+          <h1 className="font-display max-w-sm text-3xl leading-9 md:text-4xl md:leading-10 xl:text-5xl">
+            Wir helfen Ihnen Ihre Stromkosten zu minimieren
+          </h1>
+        </div>
+        <ContactButton href="#kontakt" />
+      </div>
+      <div className="relative w-full">
+        <h2 className="absolute -top-20 right-0 z-30 ml-60 max-w-xs border-l-2 border-black pl-4 text-xl font-light text-black decoration-black md:text-2xl ">
+          Installation von Photovoltaikanlagen, Stromspeicher und Umwelzpumpen
+        </h2>
+        <div className="mx-0 px-0 duration-500 ease-in-out">
+          {/* Hero Card */}
+          <Link href={`/projekte/${project.slug}`} className="relative w-full">
+            <Image
+              src={project.image.responsiveImage.src}
+              width={project.image.responsiveImage.width}
+              height={project.image.responsiveImage.height}
+              alt={project.image.alt}
+              priority={true}
+              className="h-50screen min-h-full w-full object-cover pt-16"
+            />
+            <div className="group flex w-full justify-between pt-8 md:px-4 ">
+              <h4 className="font-semibold text-white group-hover:underline">
+                Cooles Solar Projekt
+              </h4>
+              <div className="flex gap-4">
+                <InfoTag text={"Stuttgart"} />
+                <InfoTag text={"777" + " kW"} />
+              </div>
+            </div>
+          </Link>
+          {/* Hero Card end */}
+        </div>
+      </div>
+    </SectionContainer>
   );
 };

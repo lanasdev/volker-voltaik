@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
 const colors = require("tailwindcss/colors");
+const { fontFamily } = require("tailwindcss/defaultTheme");
 
 const tailwindConfig = {
   content: [
@@ -8,32 +9,13 @@ const tailwindConfig = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    FontFace: {
-      Inter: {
-        fontFamily: "Inter",
-        src: "url('/fonts/Inter-Regular.woff2') format('woff2')",
-        fontWeight: 400,
-        fontStyle: "normal",
-      },
-      "Inter-SemiBold": {
-        fontFamily: "Inter",
-        src: "url('/fonts/Inter-SemiBold.woff2') format('woff2')",
-        fontWeight: 600,
-        fontStyle: "normal",
-      },
-      Promt: {
-        fontFamily: "Promt",
-        src: "url('/fonts/Promt-SemiBold.ttf') format('ttf')",
-        fontWeight: 600,
-        fontStyle: "normal",
-      },
-    },
-    fontFamily: {
-      sans: ["Inter", "sans-serif"],
-      display: ["Promt", "display"],
-    },
-
     extend: {
+      extend: {
+        fontFamily: {
+          sans: ["var(--font-inter)", ...fontFamily.sans],
+          display: ["var(--font-prompt)", ...fontFamily.serif],
+        },
+      },
       colors: {
         white: "#FAFDFF",
         darkwhite: "#D9D9D9",
