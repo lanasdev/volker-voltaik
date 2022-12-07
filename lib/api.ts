@@ -203,6 +203,11 @@ export const getProject = async (slug: string | string[], preview: boolean) => {
             ...responsiveImageFragment
           }
         }
+        text {
+          blocks
+          links
+          value
+        }
       }
     }
 
