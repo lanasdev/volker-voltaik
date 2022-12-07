@@ -85,7 +85,10 @@ export default Hero;
 
 const HeroCard = ({ project }) => {
   return (
-    <Link href={`/projekte/${project.slug}`} className="relative w-full">
+    <Link
+      href={`/projekte/${project.slug}`}
+      className="relative inline-block w-full"
+    >
       <DatoImg
         data={project.image.responsiveImage}
         layout="responsive"
