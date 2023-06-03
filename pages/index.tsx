@@ -78,7 +78,7 @@ const Facts = () => {
           <p className="font-semibold">Am Strom der Zeit</p>
         </div>
         <hr />
-        <div className="inset-0 flex flex-col items-start justify-center gap-8 pt-8 md:flex-row md:justify-evenly">
+        <div className="inset-0 flex flex-col items-center justify-center gap-8 pt-8 md:flex-row md:items-start md:justify-evenly">
           <p className="max-w-xs px-8">
             Volker Voltaik besteht seit 1999 und wurde als Familienbetrieb
             gegründet. Seit dem konnten wir als Unternehmen einiges erreichen
