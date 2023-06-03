@@ -3,7 +3,7 @@ import type { AppProps } from "next/app";
 
 import { Fragment } from "react";
 import Script from "next/script";
-import { Inter, Prompt } from "@next/font/google";
+import { Inter, Prompt } from "next/font/google";
 import cn from "classnames";
 
 const inter = Inter({
